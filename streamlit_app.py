@@ -3,6 +3,8 @@ import random
 
 st.title("おみくじアプリ")
 
+user_name=st.text_input("あなたの名前を入力してください。")
+
 if st.button("おみくじを引く"):
     results=["大吉","中吉","小吉","吉","凶","大凶"]
     result=random.choice(results)
