@@ -12,7 +12,7 @@ st.write("あなたのBMIは"+str(bmi)+"です")
 
 b=user_height*user_height*22
 
-st.write("あなたの理想体重は"+str(b)+"です")
+st.write("あなたの理想体重は"+str(b)+"kgです")
 
 if user_weight>b:
     c=user_weight-b
