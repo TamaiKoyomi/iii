@@ -12,21 +12,21 @@ if st.button("計算する"):
     st.write("あなたのBMIは"+str(bmi)+"です")
 
     if bmi<18.5:
-        st.write("あなたは低体重(瘦せ型)です")
+        st.write("低体重(瘦せ型)です")
     elif 18.5<=bmi and bmi<25:
-        st.write("あなたは標準体重です")
+        st.write("標準体重です")
     elif 25<=bmi and bmi<30:
-        st.write("あなたは肥満(1度)です")
+        st.write("肥満(1度)です")
     elif 30<=bmi and bmi<35:
-        st.write("あなたは肥満(2度)です")
+        st.write("肥満(2度)です")
     elif 35<=bmi and bmi<40:
-        st.write("あなたは肥満(3度)です")
+        st.write("肥満(3度)です")
     else:
-        st.write("あなたは肥満(4度)です")
+        st.write("肥満(4度)です")
 
     b=user_height*user_height*22
 
-    st.write("あなたの理想体重は"+str(b)+"kgです")
+    st.write("体重が"+str(user_weight)+"kgの人の理想体重は"+str(b)+"kgです")
 
     if user_weight>b:
         c=user_weight-b
