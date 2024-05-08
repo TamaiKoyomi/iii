@@ -8,7 +8,7 @@ user_weight=st.number_input("あなたの体重を入力してください(単�
 a=user_height*user_height
 bmi=user_weight/a
 
-st.button("計算する"):
+if st.button("計算する"):
     st.write("あなたのBMIは"+str(bmi)+"です")
 
     b=user_height*user_height*22
