@@ -6,10 +6,10 @@ user_height=st.number_input("あなたの身長を入力してください(単�
 user_weight=st.number_input("あなたの体重を入力してください(単位はkg)。", min_value=1)
 
 a=user_height*user_height/10000
-bmi=user_weight/a
+bmi=round(user_weight/a)
 
 if st.button("計算する"):
-    st.write("あなたのBMIは"+str(bmi)+"です")
+    st.write("あなたのBMIは約"+str(bmi)+"です")
 
     if bmi<18.5:
         st.write("低体重(痩せ型)です")
