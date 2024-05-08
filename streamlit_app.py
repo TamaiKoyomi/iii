@@ -5,8 +5,8 @@ st.title("BMI計算アプリ")
 user_height=st.number_input("あなたの身長を入力してください(単位はcm)。", min_value=1)
 user_weight=st.number_input("あなたの体重を入力してください(単位はkg)。", min_value=1)
 
-a=user_height*user_height
-bmi=user_weight/a/100
+a=user_height*user_height/10000
+bmi=user_weight/a
 
 if st.button("計算する"):
     st.write("あなたのBMIは"+str(bmi)+"です")
