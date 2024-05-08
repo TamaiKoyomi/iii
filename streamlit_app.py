@@ -24,7 +24,7 @@ if st.button("計算する"):
     else:
         st.write("肥満(4度)です")
 
-    b=user_height*user_height*22/10000
+    b=user_height*user_height*22/100/100
 
     st.write("体重が"+str(user_weight)+"kgの人の理想体重は"+str(b)+"kgです")
 
