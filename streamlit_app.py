@@ -6,7 +6,7 @@ user_height=st.number_input("あなたの身長を入力してください(単�
 user_weight=st.number_input("あなたの体重を入力してください(単位はkg)。", min_value=1)
 
 a=user_height*user_height
-bmi=user_weight/a/100
+bmi=round(user_weight/a/100)
 
 if st.button("計算する"):
     st.write("あなたのBMIは"+str(bmi)+"です")
@@ -24,7 +24,7 @@ if st.button("計算する"):
     else:
         st.write("肥満(4度)です")
 
-    b=user_height*user_height*22/100/100
+    b=round(user_height*user_height*22/100/100)
 
     st.write("体重が"+str(user_weight)+"kgの人の理想体重は"+str(b)+"kgです")
 
