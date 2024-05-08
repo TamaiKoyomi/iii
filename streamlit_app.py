@@ -18,7 +18,7 @@ if user_weight>b:
     c=b-user_weight
     st.write("理想体重まであと"+str(c)+"kgです")
 elif user_weight<b:
-    d=user_weight-d
+    d=user_weight-b
     st.write("理想体重より"+str(d)+"kg軽いです")
 else:
     st.write("あなたの体重は理想体重ぴったりです")
