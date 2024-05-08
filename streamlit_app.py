@@ -12,7 +12,7 @@ if st.button("計算する"):
     st.write("あなたのBMIは"+str(bmi)+"です")
 
     if bmi<18.5:
-        st.write("低体重(瘦せ型)です")
+        st.write("低体重(痩せ型)です")
     elif 18.5<=bmi and bmi<25:
         st.write("標準体重です")
     elif 25<=bmi and bmi<30:
