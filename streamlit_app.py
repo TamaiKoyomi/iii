@@ -6,6 +6,19 @@ user_height=st.number_input("あなたの身長を入力してください(単�
 user_weight=st.number_input("あなたの体重を入力してください(単位はkg)。", min_value=1)
 
 a=user_height*user_height
-b=user_weight/a
+bmi=user_weight/a
 
-st.write("あなたのBMIは"+str(b)+"です")
+st.write("あなたのBMIは"+str(bmi)+"です")
+
+b=user_height*user_height*22
+
+st.write("あなたの理想体重は"+str(b)+"です")
+
+if user_weight>b:
+    c=b-user_weight
+    st.write("理想体重まであと"+str(c)+"kgです")
+elif user<b:
+    d=user_weight
+    st.write("理想体重より"+str(d)+"kg軽いです")
+else:
+    st.write("あなたの体重は理想体重ぴったりです")
