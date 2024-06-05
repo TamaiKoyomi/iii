@@ -11,8 +11,5 @@ def load_data():
 
 words_df = load_data()
 
-a = np.random.choice(words_df)
-b = words_df[words_df['単語'] == a]
-
 if st.button('四字熟語を見る'):
-    print(b)
+    print(words_df)
