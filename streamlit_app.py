@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.title('四字熟語ガチャ')
+st.title('四字熟語ガチァ')
 
 # Load the data
 @st.cache
