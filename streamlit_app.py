@@ -19,9 +19,9 @@ if st.button('四字熟語を見る'):
         'SSR': 0.1
     }
     chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
-    st.write(chosen_rarity)
+    st.write()
 
-    '''subset_df = words_df[words_df['レア度'] == chosen_rarity]
+    subset_df = words_df[words_df['レア度'] == chosen_rarity]
     selected_word = subset_df.sample().iloc[0]
     
     # セッションステートに選択された単語を保存
@@ -38,4 +38,4 @@ if 'selected_word' in st.session_state:
         st.session_state.display_meaning = True
 
     if st.session_state.display_meaning:
-        st.write(f"意味: {st.session_state.selected_word['意味']}")'''
+        st.write(f"意味: {st.session_state.selected_word['意味']}")
