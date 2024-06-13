@@ -4,7 +4,7 @@ import numpy as np
 
 st.title('四字熟語ガチャ')
 
-# Load the data
+# Load the dat
 @st.cache
 def load_data():
     return pd.read_excel("四字熟語ガチャ.xlsx")
