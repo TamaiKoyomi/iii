@@ -10,6 +10,7 @@ def load_data():
     return pd.read_excel("四字熟語ガチャ.xlsx")
 
 words_df = load_data()
+print(words_df)
 
 if st.button('四字熟語を見る'):
     rarity_probs = {
