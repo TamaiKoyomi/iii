@@ -4,7 +4,7 @@ import numpy as np
 
 st.title('四字熟語ガチャ')
 
-# Load the dat
+# Load the data
 @st.cache
 def load_data():
     return pd.read_excel("四字熟語ガチャ.xlsx")
@@ -29,6 +29,7 @@ if st.button('四字熟語を見る'):
 
 if 'selected_word' in st.session_state:
     st.header(f"単語名: {st.session_state.selected_word['単語']}")
+    st.header(f"読み方：{st.session_state.selected_word['読み方']}")
     st.subheader(f"レア度: {st.session_state.selected_word['レア度']}")
 
     # 意味を確認するボタンを追加
