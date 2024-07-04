@@ -15,7 +15,7 @@ if st.button('四字熟語を見る'):
     rarity_probs = {
         'N': 0.4,
         'R': 0.3,
-        'SR': 0.2,
+        'SR': 0.2,       
         'SSR': 0.1
     }
     chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
