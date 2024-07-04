@@ -32,9 +32,45 @@ if 'selected_word' in st.session_state:
     st.subheader(f"読み方：{st.session_state.selected_word['読み方']}")
     st.subheader(f"レア度: {st.session_state.selected_word['レア度']}")
 
-    # 意味を確認するボタンを追加
+    st.write('この四字熟語は、次の選択肢のうちどれに分類されるでしょう？(Chat GPTが分類しました。違うと思っても怒らないでください。)')
+    
+    if st.button('文学・哲学的なテーマ性') and st.session_state.selected_word['単語']=='文学・哲学的なテーマ性':
+        st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
+        if st.button('意味を確認する'):
+            st.session_state.display_meaning = True
+
+        if st.session_state.display_meaning:
+            st.write(f"意味: {st.session_state.selected_word['意味']}")
+    elif st.button('行動・精神的な特性') and st.session_state.selected_word['単語']=='行動・精神的な特性':
+        st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
+        if st.button('意味を確認する'):
+            st.session_state.display_meaning = True
+
+        if st.session_state.display_meaning:
+            st.write(f"意味: {st.session_state.selected_word['意味']}")
+    elif st.button('自然・現象に関連するもの') and st.session_state.selected_word['単語']=='自然・現象に関連するもの':
+        st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
+        if st.button('意味を確認する'):
+            st.session_state.display_meaning = True
+
+        if st.session_state.display_meaning:
+            st.write(f"意味: {st.session_state.selected_word['意味']}")
+    else:
+        st.write("残念、違います！正解: {st.session_state.selected_word['分類']}")
+        st.write('正しい意味を確認しましょう！')
+        if st.button('意味を確認する'):
+            st.session_state.display_meaning = True
+
+        if st.session_state.display_meaning:
+            st.write(f"意味: {st.session_state.selected_word['意味']}")
+
+
+
+
+
+    '''# 意味を確認するボタンを追加
     if st.button('意味を確認する'):
         st.session_state.display_meaning = True
 
     if st.session_state.display_meaning:
-        st.write(f"意味: {st.session_state.selected_word['意味']}")
+        st.write(f"意味: {st.ses？sion_state.selected_word['意味']}")'''
