@@ -55,7 +55,7 @@ if 'selected_word' in st.session_state:
 
         if st.session_state.display_meaning:
             st.write(f"意味: {st.session_state.selected_word['意味']}")
-    elif :
+    else:
         st.write(f"残念、違います！正解: {st.session_state.selected_word['分類']}")
         st.write('正しい意味を確認しましょう！')
         if st.button('意味を確認する'):
