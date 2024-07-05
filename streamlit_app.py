@@ -11,6 +11,12 @@ def load_data():
 
 words_df = load_data()
 
+def judge(kategori):
+    if st.button(kategori) and st.session_state.selected_word['分類']==kategori:
+            return True
+    else:
+        return False
+
 if st.button('四字熟語を見る'):
     rarity_probs = {
         'N': 0.4,
@@ -34,12 +40,6 @@ if 'selected_word' in st.session_state:
 
     st.write('この四字熟語は、次の選択肢のうちどれに分類されるでしょう？(Chat GPTが分類しました。違うと思っても怒らないでください。)')
 
-    def judge(kategori):
-        if st.button(kategori) and st.session_state.selected_word['分類']==kategori:
-            return True
-        else:
-            return False
-        
     kategori=['文学・哲学的なテーマ性','行動・精神的な特性','自然・現象に関連するもの']
 
     for bunrui in kategori:
@@ -59,10 +59,10 @@ if 'selected_word' in st.session_state:
             if st.session_state.display_meaning:
                 st.write(f"意味: {st.session_state.selected_word['意味']}")
 
-            
 
-        
-'''    if st.button('文学・哲学的なテーマ性') and st.session_state.selected_word['分類']=='文学・哲学的なテーマ性'！
+
+
+'''    if st.button('文学・哲学的なテーマ性') and st.session_state.selected_word['分類']=='文学・哲学的なテーマ性'
         st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
         if st.button('意味を確認する'):
             st.session_state.display_meaning = True
