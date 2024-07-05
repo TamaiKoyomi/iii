@@ -67,6 +67,7 @@ if 'selected_word' in st.session_state:
             st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
             st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
         else:
+            st.write('残念、不正解です。')
             st.write(f"正解はこちら：{st.session_state.selected_word['分類']}")
             st.write('正しい答えを確認し、この熟語をマスターしましょう！')
             st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
