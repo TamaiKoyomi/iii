@@ -40,11 +40,6 @@ if 'selected_word' in st.session_state:
 
     st.write('この四字熟語は、次の選択肢のうちどれに分類されるでしょう？(Chat GPTが分類しました。違うと思っても怒らないでください。)')
 
-    st.button('文学・哲学的なテーマ性')
-    st.button('行動・精神的な特性')
-    st.button('自然・現象に関連するもの')
-
-
     if st.button('文学・哲学的なテーマ性'):
         if judge('文学・哲学的なテーマ性'):
             st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
