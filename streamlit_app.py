@@ -40,6 +40,11 @@ if 'selected_word' in st.session_state:
 
     st.write('この四字熟語は、次の選択肢のうちどれに分類されるでしょう？(Chat GPTが分類しました。違うと思っても怒らないでください。)')
 
+    st.button('文学・哲学的なテーマ性')
+    st.button('行動・精神的な特性')
+    st.button('自然・現象に関連するもの')
+
+
     if st.button('文学・哲学的なテーマ性') and judge('文学・哲学的なテーマ性')==True:
         st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
         st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
@@ -53,6 +58,18 @@ if 'selected_word' in st.session_state:
         st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
 
     elif st.button('文学・哲学的なテーマ性') and judge('文学・哲学的なテーマ性')==False:
+        st.write('残念、不正解です。')
+        st.write(f"正解はこちら：{st.session_state.selected_word['分類']}")
+        st.write('正しい答えを確認し、この熟語をマスターしましょう！')
+        st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+
+    elif st.button('行動・精神的な特性') and judge('行動・精神的な特性')==False:
+        st.write('残念、不正解です。')
+        st.write(f"正解はこちら：{st.session_state.selected_word['分類']}")
+        st.write('正しい答えを確認し、この熟語をマスターしましょう！')
+        st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+
+    elif st.button('自然・現象に関連するもの') and judge('自然・現象に関連するもの')==False:
         st.write('残念、不正解です。')
         st.write(f"正解はこちら：{st.session_state.selected_word['分類']}")
         st.write('正しい答えを確認し、この熟語をマスターしましょう！')
