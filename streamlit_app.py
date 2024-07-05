@@ -42,31 +42,18 @@ if 'selected_word' in st.session_state:
 
     if st.button('文学・哲学的なテーマ性') and judge('文学・哲学的なテーマ性')==True:
         st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
-        if st.button('意味を確認する'):
-            st.session_state.display_meaning = True
+        st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
 
-        if st.session_state.display_meaning:
-            st.write(f"意味: {st.session_state.selected_word['意味']}")
     elif st.button('行動・精神的な特性') and judge('行動・精神的な特性')==True:
         st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
-        if st.button('意味を確認する'):
-            st.session_state.display_meaning = True
+        st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
 
-        if st.session_state.display_meaning:
-            st.write(f"意味: {st.session_state.selected_word['意味']}")
     elif st.button('自然・現象に関連するもの') and judge('自然・現象に関連するもの')==True:
         st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
-        if st.button('意味を確認する'):
-            st.session_state.display_meaning = True
+        st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
 
-        if st.session_state.display_meaning:
-            st.write(f"意味: {st.session_state.selected_word['意味']}")
     elif judge==False:
         st.write('残念、不正解です。')
         st.write(f"正解はこちら：{st.session_state.selected_word['分類']}")
         st.write('正しい答えを確認し、この熟語をマスターしましょう！')
-        if st.button('意味を確認する'):
-            st.session_state.display_meaning = True
-
-        if st.session_state.display_meaning:
-            st.write(f"意味: {st.session_state.selected_word['意味']}")
+        st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
