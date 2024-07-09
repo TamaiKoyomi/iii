@@ -4,13 +4,13 @@ import numpy as np
 
 st.title('四字熟語クイズ')
 
-name=st.sidebar.text_input('あなたのニックネームを入力してください。')
+name=st.text_input('あなたのニックネームを入力してください。')
 
-'''st.sidebar.write('あなたの所属するチームを選んでください。')
-if st.sidebar.button('a'):
-    st.sidebar.write(name+'さんはaチームに所属しました。')
-elif st.sidebar.button('b'):
-    st.sidebar.write(name+'さんはbチームに所属しました。')'''
+st.write('あなたの所属するチームを選んでください。')
+if st.button('a'):
+    st.write(name+'さんはaチームに所属しました。')
+elif st.button('b'):
+    st.write(name+'さんはbチームに所属しました。')
 
 # Load the data
 @st.cache
