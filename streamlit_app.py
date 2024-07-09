@@ -4,6 +4,10 @@ import numpy as np
 
 st.title('四字熟語クイズ')
 
+name=st.sidebar.text_input('あなたのニックネームを入力してください。')
+team=st.sidebar.write('あなたの所属するチームを選んでください。')
+
+
 # Load the data
 @st.cache
 def load_data():
