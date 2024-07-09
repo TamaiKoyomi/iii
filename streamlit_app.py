@@ -6,12 +6,11 @@ st.title('四字熟語クイズ')
 
 name=st.sidebar.text_input('あなたのニックネームを入力してください。')
 
-def syozoku():
-    st.sidebar.write('あなたの所属するチームを選んでください。')
-    if st.sidebar.button('a'):
-        st.write('あなたはaチームに所属しました。')
-    elif st.sidebar.button('b'):
-        st.write('あなたはbチームに所属しました。')
+st.sidebar.write('あなたの所属するチームを選んでください。')
+if st.sidebar.button('a'):
+    st.write('あなたはaチームに所属しました。')
+elif st.sidebar.button('b'):
+    st.write('あなたはbチームに所属しました。')
 
 # Load the data
 @st.cache
