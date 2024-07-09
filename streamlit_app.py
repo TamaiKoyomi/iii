@@ -4,9 +4,9 @@ import numpy as np
 
 st.title('四字熟語クイズ')
 
-st.sidebar('所属チーム選択'):
-    st.subheader('ニックネームを入力し、所属チームを選択してください。')
-    name=st.text_input('ニックネーム:')
+st.sidebar('所属チーム選択')
+st.subheader('ニックネームを入力し、所属チームを選択してください。')
+name=st.text_input('ニックネーム:')
 
 # Load the data
 @st.cache
