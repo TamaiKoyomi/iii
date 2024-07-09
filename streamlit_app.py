@@ -4,14 +4,6 @@ import numpy as np
 
 st.title('四字熟語ガチャ')
 
-'''name=st.text_input('あなたのニックネームを入力してください。')
-
-st.write('あなたの所属するチームを選んでください。')
-if st.button('a'):
-    st.write(name+'さんはaチームに所属しました。')
-elif st.button('b'):
-    st.write(name+'さんはbチームに所属しました。')'''
-
 # Load the data
 @st.cache
 def load_data():
