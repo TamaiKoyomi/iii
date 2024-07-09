@@ -8,9 +8,9 @@ name=st.sidebar.text_input('あなたのニックネームを入力してくだ�
 
 st.sidebar.write('あなたの所属するチームを選んでください。')
 if st.sidebar.button('a'):
-    st.write(name+'さんはaチームに所属しました。')
+    st.sidebar.write(name+'さんはaチームに所属しました。')
 elif st.sidebar.button('b'):
-    st.write(name+'さんはbチームに所属しました。')
+    st.sidebar.write(name+'さんはbチームに所属しました。')
 
 # Load the data
 @st.cache
