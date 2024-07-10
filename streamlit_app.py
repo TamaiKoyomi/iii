@@ -28,7 +28,7 @@ def show_name_input():
 
 def show_game():
     st.title('四字熟語カテゴリークイズ')
-    st.write()
+    st.write('aとbに分かれてクイズの正答率を競争します。最も正しいと思うものを選んでください。しかし、ChatGPTが分類したものなので違うと思っても怒らないでください。')
 
 # Load the data
 @st.cache
@@ -64,8 +64,6 @@ if 'selected_word' in st.session_state:
     st.header(f"単語名: {st.session_state.selected_word['単語']}")
     st.subheader(f"読み方：{st.session_state.selected_word['読み方']}")
     st.subheader(f"レア度: {st.session_state.selected_word['レア度']}")
-
-    st.write('この四字熟語は、次の選択肢のうちどれに分類されるでしょう？(Chat GPTが分類しました。違うと思っても怒らないでください。)')
 
     if st.button('文学・哲学的なテーマ性'):
         if judge('文学・哲学的なテーマ性'):
