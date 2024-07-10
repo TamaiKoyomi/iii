@@ -30,6 +30,9 @@ def show_game():
     st.title('四字熟語カテゴリークイズ')
     st.write('aとbに分かれてクイズの正答率を競争します。最も正しいと思うものを選んでください。しかし、ChatGPTが分類したものなので違うと思っても怒らないでください。')
 
+if __name__ == "__main__":
+    main()
+
 # Load the data
 @st.cache
 def load_data():
@@ -63,7 +66,6 @@ if st.button('四字熟語を見る'):
 if 'selected_word' in st.session_state:
     st.header(f"単語名: {st.session_state.selected_word['単語']}")
     st.subheader(f"読み方：{st.session_state.selected_word['読み方']}")
-    st.subheader(f"レア度: {st.session_state.selected_word['レア度']}")
 
     if st.button('文学・哲学的なテーマ性'):
         if judge('文学・哲学的なテーマ性'):
