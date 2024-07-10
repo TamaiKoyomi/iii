@@ -2,7 +2,33 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.title('四字熟語ガチャ')
+def show_name_input():
+    st.title('初期設定')
+
+    # 名前と所属チームの入力フォーム
+    with st.form(key='input_form'):
+        user_name = st.text_input('名前を入力してください。')
+        st.write('所属チームを選択してください。')
+        if st.button('a'):
+            team_name='a'
+            st.session_state.team_name = team_name
+        if st.button('b'):
+            team_name=('b')
+            st.session_state.team_name=team_name
+        submit_button = st.form_submit_button('ゲームを開始する！')
+
+        if submit_button:
+            if user_name and team_name:
+                # セッションステートに保存
+                st.session_state.user_name = user_name
+                # ページをゲーム画面に切り替える
+                st.session_state.page = 'game'
+            else:
+                st.error('名前を入力し、所属チームを選択してください。')
+
+def show_game():
+    st.title('四字熟語カテゴリークイズ')
+    st.write()
 
 # Load the data
 @st.cache
