@@ -30,10 +30,6 @@ def show_game():
     st.title('四字熟語カテゴリークイズ')
     st.write('aとbに分かれてクイズの正答率を競争します。最も正しいと思うものを選んでください。しかし、ChatGPTが分類したものなので違うと思っても怒らないでください。')
 
-if __name__ == "__main__":
-    main()
-
-
 def main():
 
     # Load the data
@@ -101,3 +97,6 @@ def main():
                 st.write(f"正解はこちら：{st.session_state.selected_word['分類']}")
                 st.write('正しい答えを確認し、この熟語をマスターしましょう！')
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+
+if __name__ == "__main__":
+    main()
