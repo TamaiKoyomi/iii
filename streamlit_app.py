@@ -28,7 +28,7 @@ def show_name_input():
 
 def show_game():
     st.title('四字熟語カテゴリークイズ')
-    st.write(user_name + 'さんは、' + team_name + 'に所属しています。')
+    st.write(st.session_tate.user_name + 'さんは、' + st.session_state.team_name + 'に所属しています。')
     st.write('aとbに分かれてクイズの正答率を競争します。最も正しいと思うものを選んでください。しかし、ChatGPTが分類したものなので違うと思っても怒らないでください。')
 
 def main():
