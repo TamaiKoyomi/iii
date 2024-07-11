@@ -31,8 +31,6 @@ def show_game():
     st.write(st.session_tate.user_name + 'さんは、' + st.session_state.team_name + 'に所属しています。')
     st.write('aとbに分かれてクイズの正答率を競争します。最も正しいと思うものを選んでください。しかし、ChatGPTが分類したものなので違うと思っても怒らないでください。')
 
-def main():
-
     # Load the data
     @st.cache
     def load_data():
@@ -99,5 +97,4 @@ def main():
                 st.write('正しい答えを確認し、この熟語をマスターしましょう！')
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
 
-if __name__ == "__main__":
-    main()
+show_game()
