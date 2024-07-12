@@ -20,7 +20,7 @@ def show_name_input():
         st.write('所属チームを選択してください。')
         if st.button('a'):
             st.session_state.team_name = 'a'
-        if st.button('b'):
+        elif st.button('b'):
             st.session_state.team_name='a'
         submit_button = st.form_submit_button('ゲームを開始する！')
 
