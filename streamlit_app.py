@@ -25,6 +25,9 @@ def show_name_input():
         submit_button = st.form_submit_button('ゲームを開始する！')
 
         if submit_button:
+            st.button('aaaaa')
+
+        if submit_button:
             if st.session_state.user_name and st.session_state.team_name:
                 # セッションステートに保存
                 st.session_state.user_name = user_name
