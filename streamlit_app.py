@@ -2,6 +2,15 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+if 'user_name' not in st.session_state:
+    st.session_state.user_name=''
+
+if 'team_name' not in st.session_state:
+    st.session_state.team_name=''
+
+if 'page' not in st.session_state:
+    st.session_state.page='input'
+
 def show_name_input():
     st.title('初期設定')
 
@@ -98,3 +107,4 @@ def show_game():
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
 
 show_game()
+
