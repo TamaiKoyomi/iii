@@ -104,5 +104,7 @@ def show_game():
                 st.write('正しい答えを確認し、この熟語をマスターしましょう！')
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
 
-show_game()
-
+if st.session_state.page=='input':
+    show_name_input()
+elif st.session_state.page=='game':
+    show_game()
