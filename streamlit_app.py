@@ -19,15 +19,13 @@ def show_name_input():
         user_name = st.text_input('名前を入力してください。')
         st.write('所属チームを選択してください。')
         if st.button('a'):
-            team_name='a'
-            st.session_state.team_name = team_name
+            st.session_state.team_name = 'a'
         if st.button('b'):
-            team_name=('b')
-            st.session_state.team_name=team_name
+            st.session_state.team_name='a'
         submit_button = st.form_submit_button('ゲームを開始する！')
 
         if submit_button:
-            if user_name and team_name:
+            if st.session_state.user_name and st.session_state.team_name:
                 # セッションステートに保存
                 st.session_state.user_name = user_name
                 # ページをゲーム画面に切り替える
