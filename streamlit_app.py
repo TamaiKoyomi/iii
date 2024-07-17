@@ -107,3 +107,5 @@ if st.sidebar.button('四字熟語クイズを解く'):
     show_game()
 elif st.sidebar.button('四字熟語一覧を見る'):
     show_pro()
+else:
+    show_game()
