@@ -73,7 +73,10 @@ def show_game():
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
 
 def show_pro():
-    if st.button('文学・哲学的なテーマ性'):
+
+    tab = st.radio('どのカテゴリーを見ますか？'['文学・哲学的なテーマ性','文学・哲学的なテーマ性','自然・現象に関連するもの'])
+
+    if tab == '文学・哲学的なテーマ性':
         for a in words_df:
             if st.session_state.selected_word['分類'] == '文学・哲学的なテーマ性':
                 st.header(f"単語名: {st.session_state.selected_word['単語']}")
@@ -81,7 +84,7 @@ def show_pro():
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
             else:
                 pass
-    if st.button('行動・精神的な特性'):
+    if tab == '行動・精神的な特性':
         for a in words_df:
             if st.session_state.selected_word['分類'] == '行動・精神的な特性':
                 st.header(f"単語名: {st.session_state.selected_word['単語']}")
@@ -89,7 +92,7 @@ def show_pro():
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
             else:
                 pass
-    if st.button('自然・現象に関連するもの'):
+    if tab == '自然・現象に関連するもの':
         for a in words_df:
             if st.session_state.selected_word['分類'] == '自然・現象に関連するもの':
                 st.header(f"単語名: {st.session_state.selected_word['単語']}")
@@ -99,9 +102,9 @@ def show_pro():
                 pass
 
 
-if st.sidebar.button('四字熟語クイズを解く'):
+sidetab = st.sidebar.radio('選択してください'['四字熟語を解く','カテゴリー別一覧を見る'])
+
+if sidetab == '四字熟語を解く':
     show_game()
-elif st.sidebar.button('四字熟語一覧を見る'):
+elif sidetab == 'カテゴリー別一覧を見る':
     show_pro()
-else:
-    show_game()
