@@ -74,7 +74,7 @@ def show_game():
 
 def show_pro():
 
-    tab = st.radio('どのカテゴリーを見ますか？'['文学・哲学的なテーマ性','文学・哲学的なテーマ性','自然・現象に関連するもの'])
+    tab = st.radio('どのカテゴリーを見ますか？',['文学・哲学的なテーマ性','文学・哲学的なテーマ性','自然・現象に関連するもの'])
 
     if tab == '文学・哲学的なテーマ性':
         for a in words_df:
@@ -102,7 +102,7 @@ def show_pro():
                 pass
 
 
-sidetab = st.sidebar.radio('選択してください'['四字熟語を解く','カテゴリー別一覧を見る'])
+sidetab = st.sidebar.radio('選択してください',['四字熟語を解く','カテゴリー別一覧を見る'])
 
 if sidetab == '四字熟語を解く':
     show_game()
