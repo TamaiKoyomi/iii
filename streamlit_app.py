@@ -107,4 +107,4 @@ elif sidetab == 'カテゴリー別一覧を見る':
 
 if all_pro != 0:
     per = collect_pro / all_pro * 100
-    st.sidebar.write('あなたの正答率'+str(per)+'%')
+    st.sidebar.write(f"あなたの正答率は{per:.2f}%です。")
