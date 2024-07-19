@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+all_pro = 0
+collect_pro = 0
+
 # Load the data
 @st.cache
 def load_data():
@@ -44,33 +47,42 @@ def show_game():
             if judge('文学・哲学的なテーマ性'):
                 st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+                collect_pro += 1
+                all_pro += 1
             else:
                 st.write('残念、不正解です。')
                 st.write(f"正解はこちら：{st.session_state.selected_word['分類']}")
                 st.write('正しい答えを確認し、この熟語をマスターしましょう！')
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+                all_pro += 1
 
 
         elif st.button('行動・精神的な特性'):
             if judge('行動・精神的な特性'):
                 st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+                collect_pro += 1
+                all_pro += 1
             else:
                 st.write('残念、不正解です。')
                 st.write(f"正解はこちら：{st.session_state.selected_word['分類']}")
                 st.write('正しい答えを確認し、この熟語をマスターしましょう！')
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+                all_pro += 1
 
 
         elif st.button('自然・現象に関連するもの'):
             if judge('自然・現象に関連するもの'):
                 st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+                collect_pro += 1
+                all_pro += 1
             else:
                 st.write('残念、不正解です。')
                 st.write(f"正解はこちら：{st.session_state.selected_word['分類']}")
                 st.write('正しい答えを確認し、この熟語をマスターしましょう！')
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+                all_pro += 1
 
 def show_pro():
 
@@ -89,3 +101,7 @@ if sidetab == 'クイズを解く':
     show_game()
 elif sidetab == 'カテゴリー別一覧を見る':
     show_pro()
+
+if all_pro != 0:
+    per = collect_pro / all_pro * 100
+    st.sidebar.write('あなたの正答率'+per+'%')
