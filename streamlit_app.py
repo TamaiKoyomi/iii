@@ -83,7 +83,7 @@ def show_pro():
         st.write(f"読み方:{row['読み方']}")
         st.write(f"意味:{row['意味']}")
 
-sidetab = st.sidebar.radio('選択してください',['四字熟語を解く','カテゴリー別一覧を見る'])
+sidetab = st.sidebar.radio('選択してください',['クイズを解く','カテゴリー別一覧を見る'])
 
 if sidetab == '四字熟語を解く':
     show_game()
