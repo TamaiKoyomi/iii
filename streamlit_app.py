@@ -78,26 +78,26 @@ def show_pro():
 
     if tab == '文学・哲学的なテーマ性':
         for a in words_df:
-            if st.session_state.selected_word['分類'] == '文学・哲学的なテーマ性':
-                st.header(f"単語名: {st.session_state.selected_word['単語']}")
-                st.subheader(f"読み方：{st.session_state.selected_word['読み方']}")
-                st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+            if a['分類'] == '文学・哲学的なテーマ性':
+                st.header(f"単語名: {a['単語']}")
+                st.subheader(f"読み方：{a['読み方']}")
+                st.write(f"この熟語の意味: {a['意味']}")
             else:
                 pass
     if tab == '行動・精神的な特性':
         for a in words_df:
-            if st.session_state.selected_word['分類'] == '行動・精神的な特性':
-                st.header(f"単語名: {st.session_state.selected_word['単語']}")
-                st.subheader(f"読み方：{st.session_state.selected_word['読み方']}")
-                st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+            if a['分類'] == '行動・精神的な特性':
+                st.header(f"単語名: {a['単語']}")
+                st.subheader(f"読み方：{a['読み方']}")
+                st.write(f"この熟語の意味: {a['意味']}")
             else:
                 pass
     if tab == '自然・現象に関連するもの':
         for a in words_df:
-            if st.session_state.selected_word['分類'] == '自然・現象に関連するもの':
-                st.header(f"単語名: {st.session_state.selected_word['単語']}")
-                st.subheader(f"読み方：{st.session_state.selected_word['読み方']}")
-                st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+            if a['分類'] == '自然・現象に関連するもの':
+                st.header(f"単語名: {a['単語']}")
+                st.subheader(f"読み方：{a['読み方']}")
+                st.write(f"この熟語の意味: {a['意味']}")
             else:
                 pass
 
