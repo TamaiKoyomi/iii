@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+global collect_pro,all_pro
 all_pro = 0
 collect_pro = 0
 
