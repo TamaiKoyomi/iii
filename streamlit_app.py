@@ -34,9 +34,12 @@ def show_game():
     
         # セッションステートに選択された単語を保存
         st.session_state.selected_word = selected_word
-        st.session_state.collect_pro = 0
-        st.session_all_pro = 0
         st.session_state.display_meaning = False
+
+        if 'collect_pro' not in st.session_state:
+            st.session_state.collect_pro = 0
+        if 'all_pro' not in st.session_state:
+            st.session_state.all_pro = 0
 
     if 'selected_word' in st.session_state:
         st.header(f"単語名: {st.session_state.selected_word['単語']}")
