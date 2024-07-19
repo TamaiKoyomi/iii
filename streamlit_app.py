@@ -76,31 +76,12 @@ def show_pro():
 
     tab = st.radio('どのカテゴリーを見ますか？',['文学・哲学的なテーマ性','行動・精神的な特性','自然・現象に関連するもの'])
 
-    if tab == '文学・哲学的なテーマ性':
-        for a in words_df:
-            if words_df['分類'] == '文学・哲学的なテーマ性':
-                st.header('単語名:'+words_df['単語'])
-                st.subheader('読み方'+words_df['読み方'])
-                st.write('この熟語の意味:'+ words_df['意味'])
-            else:
-                pass
-    if tab == '行動・精神的な特性':
-        for a in words_df:
-            if words_df['分類'] == '行動・精神的な特性':
-                st.header('単語名:'+words_df['単語'])
-                st.subheader('読み方'+words_df['読み方'])
-                st.write('この熟語の意味:'+ words_df['意味'])
-            else:
-                pass
-    if tab == '自然・現象に関連するもの':
-        for a in words_df:
-            if words_df['分類'] == '自然・現象に関連するもの':
-                st.header('単語名:'+words_df['単語'])
-                st.subheader('読み方'+words_df['読み方'])
-                st.write('この熟語の意味:'+ words_df['意味'])
-            else:
-                pass
+    filtered_df = words_df[words_df['分類'] == tab]
 
+    for index,row in filtered_df.iterrows():
+        st.subheader(f"単語名:{row['単語']}")
+        st.write(f"読み方:{row['読み方']}")
+        st.write(f"意味:{row['意味']}")
 
 sidetab = st.sidebar.radio('選択してください',['四字熟語を解く','カテゴリー別一覧を見る'])
 
