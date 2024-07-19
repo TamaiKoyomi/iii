@@ -44,6 +44,7 @@ def show_game():
         st.subheader(f"読み方：{st.session_state.selected_word['読み方']}")
 
         if st.button('文学・哲学的なテーマ性'):
+            global collect_pro,all_pro
             if judge('文学・哲学的なテーマ性'):
                 st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
@@ -58,6 +59,7 @@ def show_game():
 
 
         elif st.button('行動・精神的な特性'):
+            global collect_pro,all_pro
             if judge('行動・精神的な特性'):
                 st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
@@ -72,6 +74,7 @@ def show_game():
 
 
         elif st.button('自然・現象に関連するもの'):
+            global collect_pro,all_pro
             if judge('自然・現象に関連するもの'):
                 st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
@@ -104,4 +107,4 @@ elif sidetab == 'カテゴリー別一覧を見る':
 
 if all_pro != 0:
     per = collect_pro / all_pro * 100
-    st.sidebar.write('あなたの正答率'+per+'%')
+    st.sidebar.write('あなたの正答率'+str(per)+'%')
