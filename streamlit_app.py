@@ -85,7 +85,7 @@ def show_pro():
 
 sidetab = st.sidebar.radio('選択してください',['クイズを解く','カテゴリー別一覧を見る'])
 
-if sidetab == '四字熟語を解く':
+if sidetab == 'クイズを解く':
     show_game()
 elif sidetab == 'カテゴリー別一覧を見る':
     show_pro()
