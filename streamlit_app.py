@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+global collect_pro,all_pro
+
 all_pro = 0
 collect_pro = 0
 
@@ -106,6 +108,5 @@ elif sidetab == 'カテゴリー別一覧を見る':
     show_pro()
 
 if all_pro != 0:
-    global collect_pro,all_pro
     per = collect_pro / all_pro * 100
     st.sidebar.write(f"あなたの正答率は{per:.2f}%です。")
