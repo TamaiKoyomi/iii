@@ -114,7 +114,7 @@ def game_yomi():
 
 
 
-sidetab = st.sidebar.radio('選択してください',['カテゴリークイズを解く','カテゴリー別一覧を見る','読み方クイズを解く'])
+sidetab = st.sidebar.radio('選択してください',['カテゴリークイズを解く','読み方クイズを解く','カテゴリー別一覧を見る'])
 
 if sidetab == 'カテゴリークイズを解く':
     show_game()
