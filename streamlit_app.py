@@ -9,9 +9,27 @@ def load_data():
 
 words_df = load_data()
 
+def decide_pro():
+    rarity_probs = {
+        'N': 0.4,
+        'R': 0.3,
+        'SR': 0.2,       
+        'SSR': 0.1
+    }
+    chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
+
+    subset_df = words_df[words_df['レア度'] == chosen_rarity]
+    selected_word = subset_df.sample().iloc[0]
+    
+    # セッションステートに選択された単語を保存
+    st.session_state.selected_word = selected_word
+    st.session_state.display_meaning = False
+
 def show_game():
     st.title('四字熟語カテゴリークイズ')
     st.write('四字熟語のカテゴリーについて、最も正しいと思うものを選んでください。ただ、ChatGPTが分類したものなので違うと思っても怒らないでください。')
+
+    decide_pro()
 
     def judge(kategori):
         if st.session_state.selected_word['分類']==kategori:
@@ -20,25 +38,10 @@ def show_game():
             return False
 
 
-    if st.button('四字熟語を見る'):
-        rarity_probs = {
-            'N': 0.4,
-            'R': 0.3,
-            'SR': 0.2,       
-            'SSR': 0.1
-        }
-        chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
-
-        subset_df = words_df[words_df['レア度'] == chosen_rarity]
-        selected_word = subset_df.sample().iloc[0]
-    
-        # セッションステートに選択された単語を保存
-        st.session_state.selected_word = selected_word
-        st.session_state.display_meaning = False
-
-    if 'selected_word' in st.session_state:
-        st.header(f"単語名: {st.session_state.selected_word['単語']}")
-        st.subheader(f"読み方：{st.session_state.selected_word['読み方']}")
+    if st.button('四字熟語を見る'):  
+        if 'selected_word' in st.session_state:
+            st.header(f"単語名: {st.session_state.selected_word['単語']}")
+            st.subheader(f"読み方：{st.session_state.selected_word['読み方']}")
 
         if st.button('文学・哲学的なテーマ性'):
             if judge('文学・哲学的なテーマ性'):
@@ -86,20 +89,8 @@ def show_pro():
 def game_yomi():
     st.title('読み方クイズ')
     st.write('表示される四字熟語の読みを当ててください。ヒントとして意味を確認することができます。また、全角ひらがなでの解答お願いします。')
-    rarity_probs = {
-        'N': 0.4,
-        'R': 0.3,
-        'SR': 0.2,       
-        'SSR': 0.1
-    }
-    chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
-
-    subset_df = words_df[words_df['レア度'] == chosen_rarity]
-    selected_word = subset_df.sample().iloc[0]
-    
-    # セッションステートに選択された単語を保存
-    st.session_state.selected_word = selected_word
-    st.session_state.display_meaning = False
+    if st.button('クイズを解く'):
+        decide_pro
 
     st.subheader(f"単語名:{st.session_state.selected_word['単語']}")
     answer = st.text_input('読み方を入力してください:')
