@@ -87,11 +87,28 @@ def game_yomi():
     st.title('読み方クイズ')
     st.write('表示される四字熟語の読みを当ててください。ヒントとして意味を確認することができます。また、全角ひらがなでの解答お願いします。')
 
+    if st.button('クイズを解く'):
+        rarity_probs = {
+            'N': 0.4,
+            'R': 0.3,
+            'SR': 0.2,       
+            'SSR': 0.1
+        }
+        chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
+
+        subset_df = words_df[words_df['レア度'] == chosen_rarity]
+        selected_word = subset_df.sample().iloc[0]
+    
+        # セッションステートに選択された単語を保存
+        st.session_state.selected_word = selected_word
+        st.session_state.display_meaning = False
+
     st.subheader(f"単語名:{st.session_state.selected_word['単語']}")
     answer = st.text_input('読み方を入力してください:')
     if st.button('解答する'):
         if answer == st.session_state.selected_word['読み方']:
                 st.success('おめでとうございます、正解です！')
+                
         else:
             st.error('違います。答えを確認してください')
             st.error(f"答え:{st.session_state.selected_word['読み方']}")
