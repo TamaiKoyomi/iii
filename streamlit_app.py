@@ -118,13 +118,6 @@ def game_yomi():
 def menu():
     st.title('四字熟語クイズ')
     st.write('四字熟語に関するクイズをつくりました。好きなクイズで遊んでください！')
-    menu_tab = st.radio('選択してください',['カテゴリークイズ','読み方クイズ','カテゴリー別一覧'])
-    if menu_tab == 'カテゴリークイズ':
-        show_game()
-    elif menu_tab == '読み方クイズ':
-        game_yomi()
-    elif menu_tab == 'カテゴリー別一覧':
-        show_pro()
 
 sidetab = st.sidebar.radio('選択してください',['メニュー','カテゴリークイズ','読み方クイズ','カテゴリー別一覧'])
 
