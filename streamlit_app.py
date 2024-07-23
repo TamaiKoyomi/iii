@@ -78,7 +78,7 @@ def show_pro():
 
     filtered_df = words_df[words_df['分類'] == tab]
 
-    for row in filtered_df.iterrows():
+    for index,row in filtered_df.iterrows():
         st.subheader(f"単語名:{row['単語']}")
         st.write(f"読み方:{row['読み方']}")
         st.write(f"意味:{row['意味']}")
