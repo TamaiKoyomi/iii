@@ -108,6 +108,7 @@ def game_yomi():
     if st.button('解答する'):
         if answer == st.session_state.selected_word['読み方']:
                 st.success('おめでとうございます、正解です！')
+                answer = ''
                 
         else:
             st.error('違います。答えを確認してください')
