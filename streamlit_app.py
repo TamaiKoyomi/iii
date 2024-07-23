@@ -91,16 +91,16 @@ def game_yomi():
     if st.button('クイズを解く'):
         decide_pro
 
-    st.subheader(f"単語名:{st.session_state.selected_word['単語']}")
-    answer = st.text_input('読み方を入力してください:')
-    if st.button('解答する'):
-        if answer == st.session_state.selected_word['読み方']:
+        st.subheader(f"単語名:{st.session_state.selected_word['単語']}")
+        answer = st.text_input('読み方を入力してください:')
+        if st.button('解答する'):
+            if answer == st.session_state.selected_word['読み方']:
                 st.success('おめでとうございます、正解です！')
-        else:
-            st.error('違います。答えを確認してください')
-            st.error(f"答え:{st.session_state.selected_word['読み方']}")
-    if st.button('ヒントを見る'):
-        st.write(f"この単語の意味:{st.session_state.selected_word['意味']}")
+            else:
+                st.error('違います。答えを確認してください')
+                st.error(f"答え:{st.session_state.selected_word['読み方']}")
+        if st.button('ヒントを見る'):
+            st.write(f"この単語の意味:{st.session_state.selected_word['意味']}")
 
 
 
