@@ -72,6 +72,7 @@ def show_game():
                 st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
 
 def show_pro():
+    st.title('カテゴリー別一覧表')
 
     tab = st.radio('どのカテゴリーを見ますか？',['文学・哲学的なテーマ性','行動・精神的な特性','自然・現象に関連するもの'])
 
@@ -82,10 +83,44 @@ def show_pro():
         st.write(f"読み方:{row['読み方']}")
         st.write(f"意味:{row['意味']}")
 
-sidetab = st.sidebar.radio('選択してください',['クイズを解く','カテゴリー別一覧を見る'])
+def game_yomi():
+    st.title('読み方クイズ')
+    st.write('表示される四字熟語の読みを当ててください。ヒントとして意味を確認することができます。また、全角ひらがなでの解答お願いします。')
+    if st.button('クイズを解く'):
+        rarity_probs = {
+            'N': 0.4,
+            'R': 0.3,
+            'SR': 0.2,       
+            'SSR': 0.1
+        }
+        chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
 
-if sidetab == 'クイズを解く':
+        subset_df = words_df[words_df['レア度'] == chosen_rarity]
+        selected_word = subset_df.sample().iloc[0]
+    
+        # セッションステートに選択された単語を保存
+        st.session_state.selected_word = selected_word
+        st.session_state.display_meaning = False
+
+        st.subheader(f"単語名:{st.session_state.selected_word['単語']}")
+        answer = st.text_input()
+        if st.button('解答する'):
+            if answer == st.session_state.selected_word['読み方']:
+                st.write('おめでとうございます、正解です！')
+            else:
+                st.write('違います。答えを確認しますか？')
+                if st.button('確認する'):
+                    st.write(f'答え:{st.session_state.selected_word['読み方']}')
+        if st.button('ヒントを見る'):
+            st.write(f'この単語の意味:{st.session_state.selected_word['意味']}')
+
+
+
+sidetab = st.sidebar.radio('選択してください',['カテゴリークイズを解く','カテゴリー別一覧を見る','読み方クイズを解く'])
+
+if sidetab == 'カテゴリークイズを解く':
     show_game()
+elif sidetab == '読み方クイズを解く':
+    game_yomi()
 elif sidetab == 'カテゴリー別一覧を見る':
     show_pro()
-
