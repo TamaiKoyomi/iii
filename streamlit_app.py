@@ -11,7 +11,7 @@ words_df = load_data()
 
 def show_game():
     st.title('四字熟語カテゴリークイズ')
-    st.write('四字熟語のカテゴリーについて、最も正しいと思うものを選んでください。けれどChatGPTが分類したものなので違うと思っても怒らないでください。')
+    st.write('四字熟語のカテゴリーについて、最も正しいと思うものを選んでください。ただ、ChatGPTが分類したものなので違うと思っても怒らないでください。')
 
     def judge(kategori):
         if st.session_state.selected_word['分類']==kategori:
