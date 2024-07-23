@@ -103,8 +103,6 @@ def game_yomi():
         st.session_state.selected_word = selected_word
         st.session_state.display_meaning = False
 
-        answer = ''
-
     st.subheader(f"単語名:{st.session_state.selected_word['単語']}")
     answer = st.text_input('読み方を入力してください:')
 
@@ -117,13 +115,24 @@ def game_yomi():
     if st.button('ヒントを見る'):
         st.write(f"この単語の意味:{st.session_state.selected_word['意味']}")
 
+def menu():
+    st.title('四字熟語クイズ')
+    st.write('四字熟語に関するクイズをつくりました。好きなクイズで遊んでください！')
+    menu_tab = st.radio('選択してください',['カテゴリークイズ','読み方クイズ','カテゴリー別一覧'])
+    if menu_tab == 'カテゴリークイズ':
+        show_game()
+    elif menu_tab == '読み方クイズ':
+        game_yomi()
+    elif menu_tab == 'カテゴリー別一覧':
+        show_pro()
 
+sidetab = st.sidebar.radio('選択してください',['メニュー','カテゴリークイズ','読み方クイズ','カテゴリー別一覧'])
 
-sidetab = st.sidebar.radio('選択してください',['カテゴリークイズを解く','読み方クイズを解く','カテゴリー別一覧を見る'])
-
-if sidetab == 'カテゴリークイズを解く':
+if sidetab == 'カテゴリークイズ':
     show_game()
-elif sidetab == '読み方クイズを解く':
+elif sidetab == '読み方クイズ':
     game_yomi()
-elif sidetab == 'カテゴリー別一覧を見る':
+elif sidetab == 'カテゴリー別一覧':
     show_pro()
+elif sidetab == 'メニュー':
+    menu()
