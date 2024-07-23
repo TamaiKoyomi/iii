@@ -129,3 +129,4 @@ elif sidetab == 'カテゴリー別一覧':
     show_pro()
 elif sidetab == 'メニュー':
     menu()
+#モジ並べ替え問題作る。ランダム表示どうする？
