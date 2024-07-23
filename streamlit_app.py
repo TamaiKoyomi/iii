@@ -110,7 +110,7 @@ def game_yomi():
             else:
                 st.write('違います。答えを確認しますか？')
                 if st.button('確認する'):
-                    st.write(f'答え:{st.session_state.selected_word['読み方']}')
+                    st.write(f"答え:{st.session_state.selected_word['読み方']}")
         if st.button('ヒントを見る'):
             st.write(f"この単語の意味:{st.session_state.selected_word['意味']}")
 
