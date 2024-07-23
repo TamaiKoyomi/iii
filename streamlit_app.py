@@ -29,8 +29,6 @@ def show_game():
     st.title('四字熟語カテゴリークイズ')
     st.write('四字熟語のカテゴリーについて、最も正しいと思うものを選んでください。ただ、ChatGPTが分類したものなので違うと思っても怒らないでください。')
 
-    decide_pro()
-
     def judge(kategori):
         if st.session_state.selected_word['分類']==kategori:
             return True
@@ -39,6 +37,7 @@ def show_game():
 
 
     if st.button('四字熟語を見る'):  
+        decide_pro()
         if 'selected_word' in st.session_state:
             st.header(f"単語名: {st.session_state.selected_word['単語']}")
             st.subheader(f"読み方：{st.session_state.selected_word['読み方']}")
