@@ -160,3 +160,4 @@ elif sidetab == 'カテゴリー別一覧':
 elif sidetab == 'メニュー':
     menu()
 elif sidetab == '熟語クイズ':
+    ans_pro()
