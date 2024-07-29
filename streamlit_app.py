@@ -146,8 +146,8 @@ def ans_pro():
                 st.success('おめでとうございます、正解です！')
         else:
             st.error('違います。')
-        if st.button('答えを確認する'):
-            st.error(f"答え:{st.session_state.selected_word['単語']}")
+    if st.button('答えを確認する'):
+        st.error(f"答え:{st.session_state.selected_word['単語']}")
 
 sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','カテゴリークイズ','読み方クイズ','カテゴリー別一覧'])
 
