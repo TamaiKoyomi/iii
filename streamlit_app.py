@@ -42,34 +42,34 @@ def show_game():
 
         if st.button('文学・哲学的なテーマ性'):
             if judge('文学・哲学的なテーマ性'):
-                st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
-                st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+                st.success('正解です。おめでとうございます！正確な意味も確認しましょう。')
+                st.success(f"この熟語の意味: {st.session_state.selected_word['意味']}")
             else:
-                st.write('残念、不正解です。')
-                st.write(f"正解はこちら：{st.session_state.selected_word['分類']}")
-                st.write('正しい答えを確認し、この熟語をマスターしましょう！')
-                st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+                st.error('残念、不正解です。')
+                st.error(f"正解はこちら：{st.session_state.selected_word['分類']}")
+                st.error('正しい答えを確認し、この熟語をマスターしましょう！')
+                st.error(f"この熟語の意味: {st.session_state.selected_word['意味']}")
 
 
         elif st.button('行動・精神的な特性'):
             if judge('行動・精神的な特性'):
-                st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
-                st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+                st.success('正解です。おめでとうございます！正確な意味も確認しましょう。')
+                st.success(f"この熟語の意味: {st.session_state.selected_word['意味']}")
             else:
-                st.write('残念、不正解です。')
-                st.write(f"正解はこちら：{st.session_state.selected_word['分類']}")
-                st.write('正しい答えを確認し、この熟語をマスターしましょう！')
-                st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+                st.error('残念、不正解です。')
+                st.error(f"正解はこちら：{st.session_state.selected_word['分類']}")
+                st.error('正しい答えを確認し、この熟語をマスターしましょう！')
+                st.error(f"この熟語の意味: {st.session_state.selected_word['意味']}")
 
         elif st.button('自然・現象に関連するもの'):
             if judge('自然・現象に関連するもの'):
-                st.write('正解です。おめでとうございます！正確な意味も確認しましょう。')
-                st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+                st.success('正解です。おめでとうございます！正確な意味も確認しましょう。')
+                st.success(f"この熟語の意味: {st.session_state.selected_word['意味']}")
             else:
-                st.write('残念、不正解です。')
-                st.write(f"正解はこちら：{st.session_state.selected_word['分類']}")
-                st.write('正しい答えを確認し、この熟語をマスターしましょう！')
-                st.write(f"この熟語の意味: {st.session_state.selected_word['意味']}")
+                st.error('残念、不正解です。')
+                st.error(f"正解はこちら：{st.session_state.selected_word['分類']}")
+                st.error('正しい答えを確認し、この熟語をマスターしましょう！')
+                st.error(f"この熟語の意味: {st.session_state.selected_word['意味']}")
 
 def show_pro():
     st.title('カテゴリー別一覧表')
@@ -117,9 +117,39 @@ def game_yomi():
 
 def menu():
     st.title('四字熟語クイズ')
-    st.write('四字熟語に関するクイズをつくりました。画面端の項目から好きなクイズで遊んでください！')
+    st.write('四字熟語に関するクイズをつくりました。画面端の項目から好きなクイズを選んで遊んでください！')
 
-sidetab = st.sidebar.radio('選択してください',['メニュー','カテゴリークイズ','読み方クイズ','カテゴリー別一覧'])
+def ans_pro():
+    st.title('熟語クイズ')
+    st.write('表示される意味に対応する四字熟語を答えてください。また、漢字四字で答えるようにしてください。')
+    if st.button('四字熟語をあてる！'):
+        rarity_probs = {
+            'N': 0.4,
+            'R': 0.3,
+            'SR': 0.2,       
+            'SSR': 0.1
+        }
+        chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
+
+        subset_df = words_df[words_df['レア度'] == chosen_rarity]
+        selected_word = subset_df.sample().iloc[0]
+    
+        # セッションステートに選択された単語を保存
+        st.session_state.selected_word = selected_word
+        st.session_state.display_meaning = False
+
+    st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
+    yoji = st.text_input('これは何という四字熟語でしょう？:')
+
+    if st.button('解答する'):
+        if yoji == st.session_state.selected_word['単語']:
+                st.success('おめでとうございます、正解です！')
+        else:
+            st.error('違います。')
+            if st.button('答えを確認する'):
+                st.error(f"答え:{st.session_state.selected_word['単語']}")
+
+sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','カテゴリークイズ','読み方クイズ','カテゴリー別一覧'])
 
 if sidetab == 'カテゴリークイズ':
     show_game()
@@ -129,4 +159,6 @@ elif sidetab == 'カテゴリー別一覧':
     show_pro()
 elif sidetab == 'メニュー':
     menu()
+elif sidetab == '熟語クイズ':
+
 #モジ並べ替え問題作る。ランダム表示どうする？
