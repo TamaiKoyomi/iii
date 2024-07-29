@@ -160,5 +160,3 @@ elif sidetab == 'カテゴリー別一覧':
 elif sidetab == 'メニュー':
     menu()
 elif sidetab == '熟語クイズ':
-
-#モジ並べ替え問題作る。ランダム表示どうする？
