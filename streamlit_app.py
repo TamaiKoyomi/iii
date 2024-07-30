@@ -172,7 +172,7 @@ def ang_pro():
         st.session_state.display_meaning = False
 
         yoji_list = list(st.session_state.selected_word['単語'])
-        ran_list = random.sample(yoji_list)
+        ran_list = random.sample(yoji_list,len(yoji_list))
 
         ans_list = []
 
