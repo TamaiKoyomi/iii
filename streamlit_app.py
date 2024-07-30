@@ -181,7 +181,7 @@ def ang_pro():
 
     ran_list = random.shuffle(yoji_list)
 
-    st.write(ran_list)
+    st.write(yoji_list)
 
 
 
