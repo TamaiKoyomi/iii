@@ -175,12 +175,12 @@ def ang_pro():
         ran_list =  yoji_list.copy
         ran_list = random.shuffle(yoji_list)
 
+        ans_list = []
+
     if 'selected_word' in st.session_state:
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
 
         col1,col2,col3,col4 = st.columns(4)
-
-        ans_list = []
 
         with col1:
             if st.button(yoji_list[0]):
@@ -194,13 +194,11 @@ def ang_pro():
         with col4:
             if st.button(yoji_list[3]):
                 ans_list.append(yoji_list[3])
-    st.subheader(ans_list)
+        
     
-    
 
 
-
-sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','カテゴリークイズ','読み方クイズ','アナグラムクイズ','カテゴリー別一覧'])
+sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','読み方クイズ','カテゴリークイズ','アナグラムクイズ','カテゴリー別一覧'])
 
 if sidetab == 'カテゴリークイズ':
     show_game()
