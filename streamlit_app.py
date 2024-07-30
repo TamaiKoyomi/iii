@@ -183,7 +183,7 @@ def ang_pro():
     col1,col2,col3,col4 = st.columns(4)
 
     with col1:
-        if st.button(ran_list[0]):
+        if st.button('aiu'):
             st.session_state.ans.append(ran_list[0])
     with col2:
         if st.button(ran_list[1]):
