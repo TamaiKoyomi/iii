@@ -183,7 +183,7 @@ def ang_pro():
     col1,col2,col3,col4 = st.columns(4)
 
     with col1:
-        if st.button('aiu'):
+        if st.button(ran_list[0]):
             st.session_state.ans.append(ran_list[0])
     with col2:
         if st.button(ran_list[1]):
@@ -195,7 +195,7 @@ def ang_pro():
         if st.button(ran_list[3]):
             st.session_state.ans.append(ran_list[3])
     
-    st.write(st.session_state.ans)
+    st.write(st.session_state.ans[0]+st.session_state.ans[1])
 
 
 sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','読み方クイズ','カテゴリークイズ','アナグラムクイズ','カテゴリー別一覧'])
