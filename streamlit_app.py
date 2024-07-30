@@ -175,6 +175,9 @@ def ang_pro():
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
     
     yoji_list = list(st.session_state.selected_word['単語'])
+
+    st.write(yoji_list)
+
     ran_list = random.shuffle(yoji_list)
 
     col1,col2,col3,col4 = st.columns(4)
