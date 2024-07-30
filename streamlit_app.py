@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import random
 
 # Load the data
 @st.cache
@@ -151,7 +152,166 @@ def ans_pro():
     if st.button('答えを確認する'):
         st.error(f"答え:{st.session_state.selected_word['単語']}")
 
-sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','カテゴリークイズ','読み方クイズ','カテゴリー別一覧'])
+def ang_pro():
+    st.title('アナグラムクイズ')
+    st.title('今から表示される漢字四字を、意味の通りになるように順番にボタンをタップしてください。')
+    if st.button('四字熟語をあてる！'):
+        rarity_probs = {
+            'N': 0.4,
+            'R': 0.3,
+            'SR': 0.2,       
+            'SSR': 0.1
+        }
+        chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
+
+        subset_df = words_df[words_df['レア度'] == chosen_rarity]
+        selected_word = subset_df.sample().iloc[0]
+    
+        # セッションステートに選択された単語を保存
+        st.session_state.selected_word = selected_word
+        st.session_state.display_meaning = False
+
+    if 'selected_word' in st.session_state:
+        st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
+
+    one = st.session_state.selected_word['いち']
+    two = st.session_state.selected_word['に']
+    three = st.session_state.selected_word['さん']
+    four = st.session_state.selected_word['よん']
+
+    a = 'a'
+    b = 'b'
+    c = 'c'
+    d = 'd'
+    
+    yoji_list = [a,b,c,d]
+
+    def ang():
+        per = random.randint(1,24)
+        if per % 5 == 0:
+            a = one
+            if per % 3 == 0:
+                b = two
+                if per % 2 == 0:
+                    c = three
+                    d = four
+                else:
+                    c = four
+                    d = three
+            elif per % 3 == 1:
+                c = two
+                if per % 2 == 0:
+                    b = three
+                    d = four
+                else:
+                    b = four
+                    d = three
+
+            else:
+                d = two
+                if per % 2 == 0:
+                    b = three
+                    c = four
+                else:
+                    b = four
+                    c = three
+
+        elif per % 5 == 1:
+            b = one
+            if per % 3 == 0:
+                a = two
+                if per % 2 == 0:
+                    c = three
+                    d = four
+                else:
+                    c = four
+                    d = three
+            elif per % 3 == 1:
+                c = two
+                if per % 2 == 0:
+                    a = three
+                    d = four
+                else:
+                    a = four
+                    d = three
+            else:
+                d = two
+                if per % 2 == 0:
+                    a = three
+                    c = four
+                else:
+                    a = four
+                    c = three
+
+        elif per & 5 == 2:
+            c = one
+            if per % 3 == 0:
+                b = two
+                if per % 2 == 0:
+                    a = three
+                    d = four
+                else:
+                    a = four
+                    d = three
+            elif per % 3 == 1:
+                a = two
+                if per % 2 == 0:
+                    b = three
+                    d = four
+                else:
+                    b = four
+                    d = three
+            else:
+                d = two
+                if per % 2 == 0:
+                    b = three
+                    a = four
+                else:
+                    b = four
+                    a = three
+
+        else:
+            d = one
+            if per % 3 == 0:
+                b = two
+                if per % 2 == 0:
+                    c = three
+                    a = four
+                else:
+                    c = four
+                    a = three
+            elif per % 3 == 1:
+                c = two
+                if per % 2 == 0:
+                    b = three
+                    a = four
+                else:
+                    b = four
+                    a = three
+            else:
+                a = two
+                if per % 2 == 0:
+                    b = three
+                    c = four
+                else:
+                    b = four
+                    c = three
+    
+    ang()
+    
+    col1,col2,col3,col4 = st.colmuns(4)
+
+    with col1:
+        st.button(a)
+    with col2:
+        st.button(b)
+    with col3:
+        st.button(c)
+    with col4:
+        st.button(d)
+
+
+sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','カテゴリークイズ','読み方クイズ','アナグラムクイズ','カテゴリー別一覧'])
 
 if sidetab == 'カテゴリークイズ':
     show_game()
@@ -163,3 +323,5 @@ elif sidetab == 'メニュー':
     menu()
 elif sidetab == '熟語クイズ':
     ans_pro()
+elif sidetab == 'アナグラムクイズ':
+    ang_pro()
