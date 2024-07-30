@@ -171,12 +171,12 @@ def ang_pro():
         st.session_state.selected_word = selected_word
         st.session_state.display_meaning = False
 
+        yoji_list = list(st.session_state.selected_word['単語'])
+        ran_list =  yoji_list.copy
+        ran_list = random.shuffle(yoji_list)
+
     if 'selected_word' in st.session_state:
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
-    
-    yoji_list = list(st.session_state.selected_word['単語'])
-    ran_list =  yoji_list.copy
-    ran_list = random.shuffle(yoji_list)
     
     col1,col2,col3,col4 = st.columns(4)
 
@@ -194,7 +194,7 @@ def ang_pro():
     with col4:
         if st.button(yoji_list[3]):
             ans_list.append(yoji_list[3])
-    st.subheader(ans_list)
+    st.subheader()
     
     
 
