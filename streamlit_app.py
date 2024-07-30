@@ -299,16 +299,13 @@ def ang_pro():
     
     ang()
     
-    col1,col2,col3,col4 = st.beta_colmuns(4)
+    col1,col2, = st.beta_colmuns(2)
 
     with col1:
         st.button(a)
     with col2:
         st.button(b)
-    with col3:
-        st.button(c)
-    with col4:
-        st.button(d)
+    
 
 
 sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','カテゴリークイズ','読み方クイズ','アナグラムクイズ','カテゴリー別一覧'])
