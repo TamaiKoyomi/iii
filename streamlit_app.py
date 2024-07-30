@@ -177,9 +177,9 @@ def ang_pro():
         yoji_list = list(st.session_state.selected_word['単語'])
         ran_list = random.sample(yoji_list,len(yoji_list))
 
-        ans_list = []
+    ans_list = []
 
-        col1,col2,col3,col4 = st.columns(4)
+    col1,col2,col3,col4 = st.columns(4)
 
     with col1:
         if st.button(ran_list[0]):
