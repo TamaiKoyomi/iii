@@ -172,8 +172,7 @@ def ang_pro():
         st.session_state.display_meaning = False
 
         yoji_list = list(st.session_state.selected_word['単語'])
-        ran_list =  yoji_list.copy
-        ran_list = random.shuffle(yoji_list)
+        ran_list = random.sample(yoji_list)
 
         ans_list = []
 
@@ -182,18 +181,20 @@ def ang_pro():
 
         col1,col2,col3,col4 = st.columns(4)
 
-        with col1:
-            if st.button(yoji_list[0]):
-                ans_list.append(yoji_list[0])
-        with col2:
-            if st.button(yoji_list[1]):
-                ans_list.append(yoji_list[1])
-        with col3:
-            if st.button(yoji_list[2]):
-                ans_list.append(yoji_list[2])
-        with col4:
-            if st.button(yoji_list[3]):
-                ans_list.append(yoji_list[3])
+    with col1:
+        if st.button(ran_list[0]):
+            ans_list.append(ran_list[0])
+    with col2:
+        if st.button(ran_list[1]):
+            ans_list.append(ran_list[1])
+    with col3:
+        if st.button(ran_list[2]):
+            ans_list.append(ran_list[2])
+    with col4:
+        if st.button(ran_list[3]):
+            ans_list.append(ran_list[3])
+        
+    st.subheader(ans_list)
         
     
 
