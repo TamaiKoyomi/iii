@@ -195,7 +195,7 @@ def ang_pro():
             if st.button(ran_list[3]):
                 return ans.append(ran_list[3])
     
-    st.write(quiz())
+    
 
 
 
