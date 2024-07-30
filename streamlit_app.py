@@ -12,7 +12,7 @@ words_df = load_data()
 
 def show_game():
     st.title('四字熟語カテゴリークイズ')
-    st.write('四字熟語のカテゴリーについて、最も正しいと思うものを選んでください。ただ、ChatGPTが分類したものなので違うと思っても怒らないでください。')
+    st.write('四字熟語のカテゴリーについて、最も正しいと思うものを選んでください。なお、これはChatGPTが分類したものです。')
 
     def judge(kategori):
         if st.session_state.selected_word['分類']==kategori:
@@ -177,7 +177,7 @@ def ang_pro():
     yoji_list = list(st.session_state.selected_word['単語'])
     ran_list = random.sample(yoji_list,len(yoji_list))
 
-    st.session_state.ans = []
+    st.session_state.ans = list()
 
     
     col1,col2,col3,col4 = st.columns(4)
