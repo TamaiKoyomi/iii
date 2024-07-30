@@ -176,8 +176,9 @@ def ang_pro():
     
     yoji_list = list(st.session_state.selected_word['単語'])
     ran_list = random.sample(yoji_list,len(yoji_list))
-
-    st.session_state.ans = list()
+    
+    if 'ans' not in st.sesson_state:
+        st.session_state.ans = list()
 
     
     col1,col2,col3,col4 = st.columns(4)
