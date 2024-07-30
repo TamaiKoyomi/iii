@@ -299,7 +299,7 @@ def ang_pro():
     
     ang()
     
-    col1,col2,col3,col4 = st.colmuns(4)
+    col1,col2,col3,col4 = st.columns(4)
 
     with col1:
         st.button(a)
