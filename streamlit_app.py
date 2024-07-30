@@ -184,16 +184,16 @@ def ang_pro():
 
         with col1:
             if st.button(ran_list[0]):
-                return ans + ran_list[0]
+                return ans += ran_list[0]
         with col2:
             if st.button(ran_list[1]):
-                return ans + ran_list[1]
+                return ans += ran_list[1]
         with col3:
             if st.button(ran_list[2]):
-                return ans + ran_list[2]
+                return ans += ran_list[2]
         with col4:
             if st.button(ran_list[3]):
-                return ans + ran_list[3]
+                return ans += ran_list[3]
             
     st.write(quiz())
 
