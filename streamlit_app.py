@@ -195,7 +195,7 @@ def ang_pro():
         if st.button(ran_list[3]):
             st.session_state.ans.append(ran_list[3])
     
-    st.join(st.session_state.ans)
+    st.write(st.session_state.ans)
 
 
 sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','読み方クイズ','カテゴリークイズ','アナグラムクイズ','カテゴリー別一覧'])
