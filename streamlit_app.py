@@ -177,6 +177,7 @@ def ang_pro():
     yoji_list = list(st.session_state.selected_word['単語'])
 
     st.write(yoji_list)
+    st.write(yoji_list[0])
 
     ran_list = random.shuffle(yoji_list)
 
