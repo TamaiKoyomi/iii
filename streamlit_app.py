@@ -181,8 +181,6 @@ def ang_pro():
 
     ran_list = random.shuffle(yoji_list)
 
-    col1,col2,col3,col4 = st.columns(4)
-
     st.write(ran_list)
 
 
