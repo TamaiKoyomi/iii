@@ -103,6 +103,10 @@ def game_yomi():
         st.session_state.selected_word = selected_word
         st.session_state.display_meaning = False
 
+        if 'selected_word' in st.session_state:
+            st.header(f"単語名: {st.session_state.selected_word['単語']}")
+            st.subheader(f"読み方：{st.session_state.selected_word['読み方']}")
+
     st.subheader(f"単語名:{st.session_state.selected_word['単語']}")
     answer = st.text_input('読み方を入力してください:')
 
@@ -137,6 +141,10 @@ def ans_pro():
         # セッションステートに選択された単語を保存
         st.session_state.selected_word = selected_word
         st.session_state.display_meaning = False
+
+        if 'selected_word' in st.session_state:
+            st.header(f"単語名: {st.session_state.selected_word['単語']}")
+            st.subheader(f"読み方：{st.session_state.selected_word['読み方']}")
 
     st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
     yoji = st.text_input('これは何という四字熟語でしょう？:')
