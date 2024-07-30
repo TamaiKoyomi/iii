@@ -179,14 +179,16 @@ def ang_pro():
 
     col1,col2,col3,col4 = st.columns(4)
 
-    with col1:
+    st.write(ran_list)
+
+    '''with col1:
         st.button(ran_list[0])
     with col2:
         st.button(ran_list[1])
     with col3:
         st.button(ran_list[2])
     with col4:
-        st.button(ran_list[3])
+        st.button(ran_list[3])'''
 
 
 sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','カテゴリークイズ','読み方クイズ','アナグラムクイズ','カテゴリー別一覧'])
