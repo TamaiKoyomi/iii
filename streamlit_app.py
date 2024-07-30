@@ -153,148 +153,6 @@ def ans_pro():
         st.error(f"答え:{st.session_state.selected_word['単語']}")
 
 def ang_pro():
-
-    one = st.session_state.selected_word['いち']
-    two = st.session_state.selected_word['に']
-    three = st.session_state.selected_word['さん']
-    four = st.session_state.selected_word['よん']
-
-    yoji_list = []
-
-    def ang():
-        per = random.randint(1,24)
-        if per % 5 == 0:
-            a = one
-            if per % 3 == 0:
-                b = two
-                if per % 2 == 0:
-                    c = three
-                    d = four
-                    return yoji_list == [a,b,c,d]
-                else:
-                    c = four
-                    d = three
-                    return yoji_list == [a,b,c,d]
-            elif per % 3 == 1:
-                c = two
-                if per % 2 == 0:
-                    b = three
-                    d = four
-                    return yoji_list == [a,b,c,d]
-                else:
-                    b = four
-                    d = three
-                    return yoji_list == [a,b,c,d]
-
-            else:
-                d = two
-                if per % 2 == 0:
-                    b = three
-                    c = four
-                    return yoji_list == [a,b,c,d]
-                else:
-                    b = four
-                    c = three
-                    return yoji_list == [a,b,c,d]
-
-        elif per % 5 == 1:
-            b = one
-            if per % 3 == 0:
-                a = two
-                if per % 2 == 0:
-                    c = three
-                    d = four
-                    return yoji_list == [a,b,c,d]
-                else:
-                    c = four
-                    d = three
-                    return yoji_list == [a,b,c,d]
-            elif per % 3 == 1:
-                c = two
-                if per % 2 == 0:
-                    a = three
-                    d = four
-                    return yoji_list == [a,b,c,d]
-                else:
-                    a = four
-                    d = three
-                    return yoji_list == [a,b,c,d]
-            else:
-                d = two
-                if per % 2 == 0:
-                    a = three
-                    c = four
-                    return yoji_list == [a,b,c,d]
-                else:
-                    a = four
-                    c = three
-                    return yoji_list == [a,b,c,d]
-
-        elif per & 5 == 2:
-            c = one
-            if per % 3 == 0:
-                b = two
-                if per % 2 == 0:
-                    a = three
-                    d = four
-                    return yoji_list == [a,b,c,d]
-                else:
-                    a = four
-                    d = three
-                    return yoji_list == [a,b,c,d]
-            elif per % 3 == 1:
-                a = two
-                if per % 2 == 0:
-                    b = three
-                    d = four
-                    return yoji_list == [a,b,c,d]
-                else:
-                    b = four
-                    d = three
-                    return yoji_list == [a,b,c,d]
-            else:
-                d = two
-                if per % 2 == 0:
-                    b = three
-                    a = four
-                    return yoji_list == [a,b,c,d]
-                else:
-                    b = four
-                    a = three
-                    return yoji_list == [a,b,c,d]
-
-        else:
-            d = one
-            if per % 3 == 0:
-                b = two
-                if per % 2 == 0:
-                    c = three
-                    a = four
-                    return yoji_list == [a,b,c,d]
-                else:
-                    c = four
-                    a = three
-                    return yoji_list == [a,b,c,d]
-            elif per % 3 == 1:
-                c = two
-                if per % 2 == 0:
-                    b = three
-                    a = four
-                    return yoji_list == [a,b,c,d]
-                else:
-                    b = four
-                    a = three
-                    return yoji_list == [a,b,c,d]
-            else:
-                a = two
-                if per % 2 == 0:
-                    b = three
-                    c = four
-                    return yoji_list == [a,b,c,d]
-                else:
-                    b = four
-                    c = three
-                    return yoji_list == [a,b,c,d]
     st.title('アナグラムクイズ')
     st.write('今から表示される漢字四字を、意味の通りになるように順番にボタンをタップしてください。')
     if st.button('四字熟語をあてる！'):
@@ -315,19 +173,20 @@ def ang_pro():
 
     if 'selected_word' in st.session_state:
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
-
-        ang()
     
-        col1,col2,col3,col4 = st.columns(4)
+    yoji_list = list(st.session_state.selected_word['単語'])
+    ran_list = random.shuffle(yoji_list)
 
-        with col1:
-            st.button(yoji_list[1])
-        with col2:
-            st.button(yoji_list[2])
-        with col3:
-            st.button(yoji_list[3])
-        with col4:
-            st.buttond(yoji_list[4])
+    col1,col2,col3,col4 = st.columns(4)
+
+    with col1:
+        st.button(ran_list[0])
+    with col2:
+        st.button(ran_list[1])
+    with col3:
+        st.button(ran_list[2])
+    with col4:
+        st.button(ran_list[3])
 
 
 sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','カテゴリークイズ','読み方クイズ','アナグラムクイズ','カテゴリー別一覧'])
