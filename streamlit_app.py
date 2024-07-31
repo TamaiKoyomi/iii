@@ -28,22 +28,20 @@ def decide():
         st.session_state.display_meaning = False
 
 def yojiyoji():
-    if 'ans' not in st.session_state:
-        yoji_list = list(st.session_state.selected_word['単語'])
-        return yoji_list
-    else:
+    yoji_list = list(st.session_state.selected_word['単語'])
+    if yoji_list:
         pass
+    else:
+        return yoji_list
+        
 
 def ranran():
-    if 'ans' not in st.session_state:
-        yoji_list = yojiyoji()
-        if yoji_list:
-            ran_list = random.sample(yoji_list,len(yoji_list))
-            return ran_list
-        else:
-            pass
-    else:
+    yoji_list = yojiyoji()
+    ran_list = random.sample(yoji_list,len(yoji_list))
+    if ran_list:
         pass
+    else:
+        return ran_list
 
 def show_game():
     st.title('四字熟語カテゴリークイズ')
