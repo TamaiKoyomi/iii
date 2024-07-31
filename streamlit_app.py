@@ -32,7 +32,7 @@ def yojiyoji():
         yoji_list = list(st.session_state.selected_word['単語'])
         return yoji_list
     else:
-        return []
+        pass
 
 def ranran():
     if 'ans' not in st.session_state:
@@ -41,9 +41,9 @@ def ranran():
             ran_list = random.sample(yoji_list,len(yoji_list))
             return ran_list
         else:
-            return[]
+            pass
     else:
-        return []
+        pass
 
 def show_game():
     st.title('四字熟語カテゴリークイズ')
@@ -159,8 +159,6 @@ def ang_pro():
     yoji_list = yojiyoji()
     ran_list = ranran()
 
-    st.write(yoji_list)
-            
     st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
 
     col1,col2,col3,col4,col5 = st.columns(5)
