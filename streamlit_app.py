@@ -159,8 +159,8 @@ def ang_pro():
             st.session_state.ans.append(ran_list[3])
     with col5:
         if st.button('一字消去'):
-            if 'ans' in st.session_state:
-                st.session_state.ans.pop(ran_list)
+            if 'ans' in st.session_state and st.session_state.ans:
+                st.session_state.ans.pop()
     
     if 'ans' in st.session_state:
         st.write(st.session_state.ans[0])
