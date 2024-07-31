@@ -10,11 +10,6 @@ def load_data():
 
 words_df = load_data()
 
-if 'ans' not in st.session_state:
-        st.session_state.ans = list()
-        yoji_list = list(st.session_state.selected_word['単語'])
-        ran_list = random.sample(yoji_list,len(yoji_list))
-
 def show_game():
     st.title('四字熟語カテゴリークイズ')
     st.write('四字熟語のカテゴリーについて、最も正しいと思うものを選んでください。なお、これはChatGPTが分類したものです。')
@@ -178,6 +173,13 @@ def ang_pro():
 
     if 'selected_word' in st.session_state:
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
+    
+    if 'ans' not in st.session_state:
+        st.session_state.ans = list()
+        yoji_list = list(st.session_state.selected_word['単語'])
+        ran_list = random.sample(yoji_list,len(yoji_list))
+    
+    global ans
     
     col1,col2,col3,col4,col5 = st.columns(5)
 
