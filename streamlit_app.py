@@ -29,18 +29,58 @@ def decide():
 
 def yojiyoji():
     yoji_list = list(st.session_state.selected_word['単語'])
-    if yoji_list:
-        pass
+    if 'selected_word' in st.session_state:
+        if 'yoji_list' not in st.session_state:
+            st.session_state.yoji_list = yoji_list
+            return st.session_state.yoji_list
+        else:
+            pass
     else:
-        return yoji_list
-        
+        rarity_probs = {
+            'N': 0.4,
+            'R': 0.3,
+            'SR': 0.2,       
+            'SSR': 0.1
+        }
+        chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
+
+        subset_df = words_df[words_df['レア度'] == chosen_rarity]
+        selected_word = subset_df.sample().iloc[0]
+    
+        # セッションステートに選択された単語を保存
+        st.session_state.selected_word = selected_word
+        st.session_state.display_meaning = False
+
+        st.session_state.yoji_list = yoji_list
+
+        return st.session_state.yoji_list
 
 def ranran():
     yoji_list = yojiyoji()
     ran_list = random.sample(yoji_list,len(yoji_list))
-    if ran_list:
-        pass
+    if 'selected_word' in st.session_state:
+        if 'ran_list' not in st.session_state:
+            st.session_state.ran_list = ran_list
+            return ran_list
+        else:
+            pass
     else:
+        rarity_probs = {
+            'N': 0.4,
+            'R': 0.3,
+            'SR': 0.2,       
+            'SSR': 0.1
+        }
+        chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
+
+        subset_df = words_df[words_df['レア度'] == chosen_rarity]
+        selected_word = subset_df.sample().iloc[0]
+    
+        # セッションステートに選択された単語を保存
+        st.session_state.selected_word = selected_word
+        st.session_state.display_meaning = False
+
+        st.session_state.ran_list = ran_list
         return ran_list
 
 def show_game():
