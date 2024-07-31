@@ -27,9 +27,6 @@ def decide():
         st.session_state.selected_word = selected_word
         st.session_state.display_meaning = False
 
-        if 'ans' not in st.session_state:
-            st.session_state.ans = []
-
 def yojiyoji():
     if 'ans' not in st.session_state:
         yoji_list = list(st.session_state.selected_word['単語'])
@@ -39,9 +36,12 @@ def yojiyoji():
 
 def ranran():
     if 'ans' not in st.session_state:
-        yoji_list = list(st.session_state.selected_word['単語'])
-        ran_list = random.sample(yoji_list,len(yoji_list))
-        return ran_list
+        yoji_list = yojiyoji()
+        if yoji_list:
+            ran_list = random.sample(yoji_list,len(yoji_list))
+            return ran_list
+        else:
+            return[]
     else:
         return []
 
@@ -150,37 +150,47 @@ def ang_pro():
     st.write('今から表示される漢字四字を、意味の通りになるように順番にボタンをタップしてください。')
 
     decide()
-    yoji_list = yojiyoji()
-    ran_list = ranran()
 
     if 'selected_word' in st.session_state:
 
-        st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
+        if 'ans' not in st.session_state:
+            st.session_state.ans = []
+
+        yoji_list = yojiyoji()
+        ran_list = ranran()
+
+        if ran_list:
+            
+            st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
+
+            col1,col2,col3,col4,col5 = st.columns(5)
+
+            with col1:
+                if st.button(ran_list[0]):
+                    st.session_state.ans.append(ran_list[0])
+            with col2:
+                if st.button(ran_list[1]):
+                    st.session_state.ans.append(ran_list[1])
+            with col3:
+                if st.button(ran_list[2]):
+                    st.session_state.ans.append(ran_list[2])
+            with col4:
+                if st.button(ran_list[3]):
+                    st.session_state.ans.append(ran_list[3])
+            with col5:
+                if st.button('一字消去'):
+                    if 'ans' in st.session_state and st.session_state.ans:
+                        st.session_state.ans.pop()
     
-        col1,col2,col3,col4,col5 = st.columns(5)
+            st.write(st.session_state.ans)
 
-        with col1:
-            if st.button(ran_list[0]):
-                st.session_state.ans.append(ran_list[0])
-        with col2:
-            if st.button(ran_list[1]):
-                st.session_state.ans.append(ran_list[1])
-        with col3:
-            if st.button(ran_list[2]):
-                st.session_state.ans.append(ran_list[2])
-        with col4:
-            if st.button(ran_list[3]):
-                st.session_state.ans.append(ran_list[3])
-        with col5:
-            if st.button('一字消去'):
-                if 'ans' in st.session_state and st.session_state.ans:
-                    st.session_state.ans.pop()
-    
-        if 'ans' in st.session_state:
-            st.write(st.session_state.ans[0])
+        else:
+            st.write('「クイズを解く！」ボタンを押して、さっそくクイズを解いてみましょう！')
 
+    else:
+        st.write('「クイズを解く！」ボタンを押して、さっそくクイズを解いてみましょう！')
 
-sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','読み方クイズ','カテゴリークイズ','アナグラムクイズ','カテゴリー別一覧'])
+sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','読み方クイズ','カテゴリークイズ','アナグラムクイズ','カテゴリー別一覧']！)
 
 if sidetab == 'カテゴリークイズ':
     show_game()
