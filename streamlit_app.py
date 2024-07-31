@@ -156,8 +156,8 @@ def ang_pro():
         if 'ans' not in st.session_state:
             st.session_state.ans = []
 
-            yoji_list = yojiyoji()
-            ran_list = ranran()
+    yoji_list = yojiyoji()
+    ran_list = ranran()
             
     st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
 
