@@ -185,10 +185,10 @@ def ang_pro():
             st.write(st.session_state.ans)
 
         else:
-            st.write('「クイズを解く！」ボタンを押して、さっそくクイズを解いてみましょう！')
+            st.write(' ')
 
     else:
-        st.write('「クイズを解く！」ボタンを押して、さっそくクイズを解いてみましょう！')
+        st.write(' ')
 
 sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','読み方クイズ','カテゴリークイズ','アナグラムクイズ','カテゴリー別一覧'])
 
