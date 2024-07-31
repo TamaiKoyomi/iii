@@ -174,10 +174,9 @@ def ang_pro():
     if 'selected_word' in st.session_state:
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
     
-    if 'ans' not in st.session_state:
-        st.session_state.ans = list()
-        yoji_list = list(st.session_state.selected_word['単語'])
-        ran_list = random.sample(yoji_list,len(yoji_list))
+    st.session_state.ans = list()
+    yoji_list = list(st.session_state.selected_word['単語'])
+    ran_list = random.sample(yoji_list,len(yoji_list))
     
     global ans
     
