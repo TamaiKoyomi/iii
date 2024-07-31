@@ -13,9 +13,9 @@ words_df = load_data()
 def decide():
     if st.button('クイズを解く！'):
         rarity_probs = {
-            'N': 0.4,
-            'R': 0.3,
-            'SR': 0.2,       
+            'N': 0.1,
+            'R': 0.1,
+            'SR': 0.1,       
             'SSR': 0.1
         }
         chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
