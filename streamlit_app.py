@@ -163,22 +163,25 @@ def ang_pro():
 
     col1,col2,col3,col4,col5 = st.columns(5)
     
-    with col1:
-        if st.button(ran_list[0]):
-            st.session_state.ans.append(ran_list[0])
-    with col2:
-        if st.button(ran_list[1]):
-            st.session_state.ans.append(ran_list[1])
-    with col3:
-        if st.button(ran_list[2]):
-            st.session_state.ans.append(ran_list[2])
-    with col4:
-        if st.button(ran_list[3]):
-            st.session_state.ans.append(ran_list[3])
-    with col5:
-        if st.button('一字消去'):
-            if 'ans' in st.session_state and st.session_state.ans:
-                st.session_state.ans.pop()
+    if ran_list:
+        with col1:
+            if st.button(ran_list[0]):
+                st.session_state.ans.append(ran_list[0])
+        with col2:
+            if st.button(ran_list[1]):
+                st.session_state.ans.append(ran_list[1])
+        with col3:
+            if st.button(ran_list[2]):
+                st.session_state.ans.append(ran_list[2])
+        with col4:
+            if st.button(ran_list[3]):
+                st.session_state.ans.append(ran_list[3])
+        with col5:
+            if st.button('一字消去'):
+                if 'ans' in st.session_state and st.session_state.ans:
+                    st.session_state.ans.pop()
+    else:
+        st.write(' ')
     
     if 'ans' in st.session_state:
         st.write(st.session_state.ans)
