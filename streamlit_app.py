@@ -198,7 +198,8 @@ def ang_pro():
         if st.button('一字消去'):
             st.session_state.ans.pop(ran_list)
     
-    st.write(st.session_state.ans[0])
+    if 'ans' in st.session_state:
+        st.write(st.session_state.ans[0])
 
 
 sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','読み方クイズ','カテゴリークイズ','アナグラムクイズ','カテゴリー別一覧'])
