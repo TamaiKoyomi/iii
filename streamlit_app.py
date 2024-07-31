@@ -30,9 +30,6 @@ def decide():
         if 'ans' not in st.session_state:
             st.session_state.ans = list()
 
-yoji_list = list(st.session_state.selected_word['単語'])
-ran_list = random.sample(yoji_list,len(yoji_list))
-
 def show_game():
     st.title('四字熟語カテゴリークイズ')
     st.write('四字熟語のカテゴリーについて、最も正しいと思うものを選んでください。なお、これはChatGPTが分類したものです。')
