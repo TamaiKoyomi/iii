@@ -140,6 +140,8 @@ def ang_pro():
 
     decide()
 
+    global ran_list
+
     if 'selected_word' in st.session_state:
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
     
