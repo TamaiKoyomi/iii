@@ -138,9 +138,7 @@ def ang_pro():
     st.title('アナグラムクイズ')
     st.write('今から表示される漢字四字を、意味の通りになるように順番にボタンをタップしてください。')
 
-    decide()
-
-    global ran_list
+    ran_list = decide()
 
     if 'selected_word' in st.session_state:
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
