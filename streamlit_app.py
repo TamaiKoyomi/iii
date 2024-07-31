@@ -41,9 +41,8 @@ def show_game():
             return True
         else:
             return False
-    
-    if 'selected_word' not in st.session_state:
-        decide()
+     
+    decide()
 
     if 'selected_word' in st.session_state:
         st.header(f"単語名: {st.session_state.selected_word['単語']}")
@@ -96,8 +95,7 @@ def game_yomi():
     st.title('読み方クイズ')
     st.write('表示される四字熟語の読みを当ててください。ヒントとして意味を確認することができます。また、全角ひらがなでの解答お願いします。')
 
-    if 'selected_word' not in st.session_state:
-        decide()
+    decide()
 
     if 'selected_word' in st.session_state:
         st.subheader(f"単語名:{st.session_state.selected_word['単語']}")
@@ -120,8 +118,7 @@ def ans_pro():
     st.title('熟語クイズ')
     st.write('表示される意味に対応する四字熟語を答えてください。また、漢字四字で答えるようにしてください。表記ゆれにより不正解とされる場合もあるため、不正解と出たら他の表記法で試してみてください。')
     
-    if 'selected_word' not in st.session_state:
-        decide()
+    decide()
 
     if 'selected_word' in st.session_state:
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
@@ -139,8 +136,7 @@ def ang_pro():
     st.title('アナグラムクイズ')
     st.write('今から表示される漢字四字を、意味の通りになるように順番にボタンをタップしてください。')
 
-    if 'selected_word' not in st.session_state:
-        decide()
+    decide()
 
     global ran_list
 
