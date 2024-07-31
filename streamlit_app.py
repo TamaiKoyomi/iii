@@ -180,7 +180,7 @@ def ang_pro():
         ran_list = random.sample.list(yoji_list,len(yoji_list))
 
     
-    col1,col2,col3,col4 = st.columns(4)
+    col1,col2,col3,col4,col5 = st.columns(5)
 
     with col1:
         if st.button(ran_list[0]):
@@ -194,6 +194,9 @@ def ang_pro():
     with col4:
         if st.button(ran_list[3]):
             st.session_state.ans.append(ran_list[3])
+    with col5:
+        if st.button('一字消去'):
+            st.session_state.ans.pop(ran_list)
     
     st.write(st.session_state.ans[0])
 
