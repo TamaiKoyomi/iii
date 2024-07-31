@@ -29,8 +29,9 @@ def decide():
 
         if 'ans' not in st.session_state:
             st.session_state.ans = list()
-            st.session_state.yoji_list = list(st.session_state.selected_word['単語'])
-            st.session_state.ran_list = random.sample(st.session_state.yoji_list,len(st.session_state.yoji_list))
+        
+        st.session_state.yoji_list = list(st.session_state.selected_word['単語'])
+        st.session_state.ran_list = random.sample(st.session_state.yoji_list,len(st.session_state.yoji_list))
 
 def show_game():
     st.title('四字熟語カテゴリークイズ')
