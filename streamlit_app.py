@@ -10,18 +10,8 @@ def load_data():
 
 words_df = load_data()
 
-def show_game():
-    st.title('四字熟語カテゴリークイズ')
-    st.write('四字熟語のカテゴリーについて、最も正しいと思うものを選んでください。なお、これはChatGPTが分類したものです。')
-
-    def judge(kategori):
-        if st.session_state.selected_word['分類']==kategori:
-            return True
-        else:
-            return False
-
-
-    if st.button('四字熟語を見る'):
+def decide():
+    if st.button('クイズを解く！'):
         rarity_probs = {
             'N': 0.4,
             'R': 0.3,
@@ -36,6 +26,24 @@ def show_game():
         # セッションステートに選択された単語を保存
         st.session_state.selected_word = selected_word
         st.session_state.display_meaning = False
+
+        if 'ans' not in st.session_state:
+            st.session_state.ans = list()
+            yoji_list = list(st.session_state.selected_word['単語'])
+            ran_list = random.sample(yoji_list,len(yoji_list))
+
+def show_game():
+    st.title('四字熟語カテゴリークイズ')
+    st.write('四字熟語のカテゴリーについて、最も正しいと思うものを選んでください。なお、これはChatGPTが分類したものです。')
+
+    def judge(kategori):
+        if st.session_state.selected_word['分類']==kategori:
+            return True
+        else:
+            return False
+    
+    if 'selected_word' not in st.session_state:
+        decide()
 
     if 'selected_word' in st.session_state:
         st.header(f"単語名: {st.session_state.selected_word['単語']}")
@@ -88,21 +96,8 @@ def game_yomi():
     st.title('読み方クイズ')
     st.write('表示される四字熟語の読みを当ててください。ヒントとして意味を確認することができます。また、全角ひらがなでの解答お願いします。')
 
-    if st.button('クイズを解く'):
-        rarity_probs = {
-            'N': 0.4,
-            'R': 0.3,
-            'SR': 0.2,       
-            'SSR': 0.1
-        }
-        chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
-
-        subset_df = words_df[words_df['レア度'] == chosen_rarity]
-        selected_word = subset_df.sample().iloc[0]
-    
-        # セッションステートに選択された単語を保存
-        st.session_state.selected_word = selected_word
-        st.session_state.display_meaning = False
+    if 'selected_word' not in st.session_state:
+        decide()
 
     if 'selected_word' in st.session_state:
         st.subheader(f"単語名:{st.session_state.selected_word['単語']}")
@@ -124,21 +119,9 @@ def menu():
 def ans_pro():
     st.title('熟語クイズ')
     st.write('表示される意味に対応する四字熟語を答えてください。また、漢字四字で答えるようにしてください。表記ゆれにより不正解とされる場合もあるため、不正解と出たら他の表記法で試してみてください。')
-    if st.button('四字熟語をあてる！'):
-        rarity_probs = {
-            'N': 0.4,
-            'R': 0.3,
-            'SR': 0.2,       
-            'SSR': 0.1
-        }
-        chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
-
-        subset_df = words_df[words_df['レア度'] == chosen_rarity]
-        selected_word = subset_df.sample().iloc[0]
     
-        # セッションステートに選択された単語を保存
-        st.session_state.selected_word = selected_word
-        st.session_state.display_meaning = False
+    if 'selected_word' not in st.session_state:
+        decide()
 
     if 'selected_word' in st.session_state:
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
@@ -155,30 +138,14 @@ def ans_pro():
 def ang_pro():
     st.title('アナグラムクイズ')
     st.write('今から表示される漢字四字を、意味の通りになるように順番にボタンをタップしてください。')
-    if st.button('四字熟語をあてる！'):
-        rarity_probs = {
-            'N': 0.4,
-            'R': 0.3,
-            'SR': 0.2,       
-            'SSR': 0.1
-        }
-        chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
 
-        subset_df = words_df[words_df['レア度'] == chosen_rarity]
-        selected_word = subset_df.sample().iloc[0]
-    
-        # セッションステートに選択された単語を保存
-        st.session_state.selected_word = selected_word
-        st.session_state.display_meaning = False
+    if 'selected_word' not in st.session_state:
+        decide()
+
+    global ran_list
 
     if 'selected_word' in st.session_state:
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
-    
-    st.session_state.ans = list()
-    yoji_list = list(st.session_state.selected_word['単語'])
-    ran_list = random.sample(yoji_list,len(yoji_list))
-    
-    global ans
     
     col1,col2,col3,col4,col5 = st.columns(5)
 
