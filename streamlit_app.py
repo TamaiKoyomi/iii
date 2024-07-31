@@ -158,6 +158,8 @@ def ang_pro():
 
     yoji_list = yojiyoji()
     ran_list = ranran()
+
+    st.write(yoji_list)
             
     st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
 
@@ -184,7 +186,7 @@ def ang_pro():
         st.write(' ')
     
     if 'ans' in st.session_state:
-        st.write(st.session_state.ans)
+        st.write(st.session_state.ans[0])
 
 
 sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','読み方クイズ','カテゴリークイズ','アナグラムクイズ','カテゴリー別一覧'])
