@@ -29,9 +29,9 @@ def decide():
 
         if 'ans' not in st.session_state:
             st.session_state.ans = list()
-        
-        st.session_state.yoji_list = list(st.session_state.selected_word['単語'])
-        st.session_state.ran_list = random.sample(st.session_state.yoji_list,len(st.session_state.yoji_list))
+
+yoji_list = list(st.session_state.selected_word['単語'])
+ran_list = random.sample(yoji_list,len(yoji_list))
 
 def show_game():
     st.title('四字熟語カテゴリークイズ')
@@ -138,8 +138,7 @@ def ang_pro():
     st.write('今から表示される漢字四字を、意味の通りになるように順番にボタンをタップしてください。')
 
     decide()
-    ran_list = st.session_state.ran_list
-    yoji_list = st.session_state.yoji_list
+    global yoji_list,ran_list
 
     if 'selected_word' in st.session_state:
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
