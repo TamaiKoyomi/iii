@@ -30,6 +30,8 @@ def decide():
         st.session_state.ran_list = None
         st.session_state.ans = []
 
+        st.session_state.yoji = ''
+
 def yojiyoji():
     yoji_list = list(st.session_state.selected_word['単語'])
     st.session_state.yoji_list = yoji_list
@@ -129,14 +131,13 @@ def ans_pro():
     st.write('表示された意味となる四字熟語を漢字四字で答えるようにしてください。表記ゆれにより不正解とされる場合もあるため、不正解と出たら他の表記法で試してみてください。')
     
     decide()
-    yoji = ''
 
     if 'selected_word' in st.session_state:
         st.subheader(f"「{st.session_state.selected_word['意味']}」という意味の四字熟語を答えよ。")
-        yoji = st.text_input('これは何という四字熟語でしょう？:')
+        st.session_state.yoji = st.text_input('これは何という四字熟語でしょう？:')
 
     if st.button('解答する'):
-        if yoji == st.session_state.selected_word['単語']:
+        if st.session_state.yoji == st.session_state.selected_word['単語']:
                 st.success('おめでとうございます、正解です！')
         else:
             st.error('違います。')
