@@ -152,8 +152,6 @@ def ang_pro():
     decide()
 
     if 'selected_word' in st.session_state:
-        if 'ans' not in st.session_state:
-            st.session_state.ans = []
         
         st.write('あいう')
 
