@@ -33,9 +33,6 @@ def decide():
 def yojiyoji():
     yoji_list = list(st.session_state.selected_word['単語'])
     st.session_state.yoji_list = yoji_list
-    st.write('sasi')
-    st.write(st.session_state.yoji_list)
-    st.write('kaki')
 
 def ranran():
     yojiyoji()
@@ -153,16 +150,8 @@ def ang_pro():
     decide()
 
     if 'selected_word' in st.session_state:
-        
-        st.write('あいう')
-
         yojiyoji()
-
-        st.write(st.session_state.yoji_list)
-
         ranran()
-
-        st.write(st.session_state.ran_list)
 
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
 
