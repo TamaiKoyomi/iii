@@ -163,6 +163,8 @@ def ang_pro():
 
         ranran()
 
+        st.write(st.session_state.ran_list)
+
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
 
         col1,col2,col3,col4,col5 = st.columns(5)
