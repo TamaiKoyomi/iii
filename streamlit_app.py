@@ -152,6 +152,8 @@ def ang_pro():
     decide()
 
     if 'selected_word' in st.session_state:
+        if 'ans' not in st.session_state:
+            st.session_state.ans = []
         
         st.write('あいう')
 
@@ -287,8 +289,8 @@ def ang_pro():
                     if 'ans' in st.session_state and st.session_state.ans:
                         st.session_state.ans.pop()
     
-        for yo in st.session_state.ans:
-            st.write(yo)
+        if 'ans' in st.session_state:
+            st.write(st.session_state.ans)
 
 sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','読み方クイズ','カテゴリークイズ','アナグラムクイズ','カテゴリー別一覧'])
 
