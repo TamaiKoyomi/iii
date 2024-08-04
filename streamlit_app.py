@@ -289,7 +289,9 @@ def ang_pro():
                         st.session_state.ans.pop()
     
         if 'ans' in st.session_state:
-            st.write(st.session_state.ans)
+            for yo in st.session_state.ans:
+                ans_yo += yo
+            st.write(ans_yo)
         
         if st.session_state.ans == st.session_state.yoji_list:
             st.success('おめでとうございます、正解です！')
