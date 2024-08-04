@@ -39,7 +39,6 @@ def yojiyoji():
         pass
 
 def ranran():
-    st.session_state.yoji_list = yojiyoji()
     if 'ran_list' not in st.session_state:
         ran_list = random.sample(st.session_state.yoji_list,len(st.session_state.yoji_list))
         st.session_state.ran_list = ran_list
