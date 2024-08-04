@@ -154,8 +154,13 @@ def ang_pro():
     if 'selected_word' in st.session_state:
         if 'ans' not in st.session_state:
             st.session_state.ans = []
+        
+        st.write('あいう')
 
         st.session_state.yoji_list = yojiyoji()
+
+        st.write(st.session_state.yoji_list)
+
         st.session_state.ran_list = ranran()
 
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
