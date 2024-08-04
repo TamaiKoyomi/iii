@@ -29,13 +29,10 @@ def decide():
 
 def yojiyoji():
     yoji_list = list(st.session_state.selected_word['単語'])
-    if 'yoji_list' not in st.session_state:
-        st.session_state.yoji_list = yoji_list
-        st.write('sasi')
-        st.write(st.session_state.yoji_list)
-        st.write('kaki')
-    else:
-        pass
+    st.session_state.yoji_list = yoji_list
+    st.write('sasi')
+    st.write(st.session_state.yoji_list)
+    st.write('kaki')
 
 def ranran():
     if 'ran_list' not in st.session_state:
