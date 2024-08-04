@@ -27,6 +27,8 @@ def decide():
         st.session_state.selected_word = selected_word
         st.session_state.display_meaning = False
 
+        st.session_state.ran_list = None
+
 def yojiyoji():
     yoji_list = list(st.session_state.selected_word['単語'])
     st.session_state.yoji_list = yoji_list
@@ -35,7 +37,8 @@ def yojiyoji():
     st.write('kaki')
 
 def ranran():
-    if decide():
+    yojiyoji()
+    if 'ran_list' not in st.session_state:
         ran_list = random.sample(st.session_state.yoji_list,len(st.session_state.yoji_list))
         st.session_state.ran_list = ran_list
     else:
