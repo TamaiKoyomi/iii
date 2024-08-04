@@ -29,7 +29,6 @@ def decide():
 
         st.session_state.ran_list = None
         st.session_state.ans = []
-        st.session_state.ans_yo = ''
 
 def yojiyoji():
     yoji_list = list(st.session_state.selected_word['単語'])
@@ -290,9 +289,8 @@ def ang_pro():
                         st.session_state.ans.pop()
     
         if 'ans' in st.session_state:
-            for yo in st.session_state.ans:
-                st.session_state.ans_yo += yo
-            st.write(st.session_state.ans_yo)
+            yoyo = ''.join(st.session_state.ans)
+            st.subheader(yoyo)
         
         if st.session_state.ans == st.session_state.yoji_list:
             st.success('おめでとうございます、正解です！')
