@@ -35,25 +35,6 @@ def yojiyoji():
             return st.session_state.yoji_list
         else:
             pass
-    else:
-        rarity_probs = {
-            'N': 0.4,
-            'R': 0.3,
-            'SR': 0.2,       
-            'SSR': 0.1
-        }
-        chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
-
-        subset_df = words_df[words_df['レア度'] == chosen_rarity]
-        selected_word = subset_df.sample().iloc[0]
-    
-        # セッションステートに選択された単語を保存
-        st.session_state.selected_word = selected_word
-        st.session_state.display_meaning = False
-
-        st.session_state.yoji_list = yoji_list
-
-        return st.session_state.yoji_list
 
 def ranran():
     yoji_list = yojiyoji()
@@ -64,24 +45,6 @@ def ranran():
             return ran_list
         else:
             pass
-    else:
-        rarity_probs = {
-            'N': 0.4,
-            'R': 0.3,
-            'SR': 0.2,       
-            'SSR': 0.1
-        }
-        chosen_rarity = np.random.choice(list(rarity_probs.keys()), p=list(rarity_probs.values()))
-
-        subset_df = words_df[words_df['レア度'] == chosen_rarity]
-        selected_word = subset_df.sample().iloc[0]
-    
-        # セッションステートに選択された単語を保存
-        st.session_state.selected_word = selected_word
-        st.session_state.display_meaning = False
-
-        st.session_state.ran_list = ran_list
-        return ran_list
 
 def show_game():
     st.title('四字熟語カテゴリークイズ')
@@ -180,6 +143,7 @@ def ans_pro():
                 st.success('おめでとうございます、正解です！')
         else:
             st.error('違います。')
+
     if st.button('答えを確認する'):
         st.error(f"答え:{st.session_state.selected_word['単語']}")
 
@@ -223,7 +187,6 @@ def ang_pro():
     
     if 'ans' in st.session_state:
         st.write(st.session_state.ans[0])
-
 
 sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','読み方クイズ','カテゴリークイズ','アナグラムクイズ','カテゴリー別一覧'])
 
