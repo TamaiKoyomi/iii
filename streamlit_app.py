@@ -108,7 +108,7 @@ def game_yomi():
     decide()
 
     if 'selected_word' in st.session_state:
-        st.subheader(f"単語名:{st.session_state.selected_word['単語']}")
+        st.subheader(f"「{st.session_state.selected_word['単語']}」は、何と読む？")
         answer = st.text_input('読み方を入力してください:')
 
     if st.button('解答する'):
@@ -126,12 +126,12 @@ def menu():
 
 def ans_pro():
     st.title('熟語クイズ')
-    st.write('表示される意味に対応する四字熟語を答えてください。また、漢字四字で答えるようにしてください。表記ゆれにより不正解とされる場合もあるため、不正解と出たら他の表記法で試してみてください。')
+    st.write('表示された意味となる四字熟語を漢字四字で答えるようにしてください。表記ゆれにより不正解とされる場合もあるため、不正解と出たら他の表記法で試してみてください。')
     
     decide()
 
     if 'selected_word' in st.session_state:
-        st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
+        st.subheader(f"「{st.session_state.selected_word['意味']}」という意味の四字熟語を答えよ。")
         yoji = st.text_input('これは何という四字熟語でしょう？:')
 
     if st.button('解答する'):
@@ -153,7 +153,7 @@ def ang_pro():
         yojiyoji()
         ranran()
 
-        st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
+        st.subheader(f"「{st.session_state.selected_word['意味']}」という意味の四字熟語を作れ。")
 
         col1,col2,col3,col4,col5 = st.columns(5)
     
