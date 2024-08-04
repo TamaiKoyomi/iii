@@ -293,7 +293,7 @@ def ang_pro():
         
         if st.session_state.ans == st.session_state.yoji_list:
             st.success('おめでとうございます、正解です！')
-        elif st.session_state.ans != st.session_state.yoji_list and len(st.session_state.ans) == 4:
+        elif st.session_state.ans != st.session_state.yoji_list and len(st.session_state.ans) >= 4:
             st.error('違います。')
 
 
