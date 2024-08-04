@@ -30,8 +30,6 @@ def decide():
         st.session_state.ran_list = None
         st.session_state.ans = []
 
-        st.session_state.yoji = ''
-
 def yojiyoji():
     yoji_list = list(st.session_state.selected_word['単語'])
     st.session_state.yoji_list = yoji_list
