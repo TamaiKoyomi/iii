@@ -29,7 +29,9 @@ def decide():
 
 def yojiyoji():
     yoji_list = list(st.session_state.selected_word['単語'])
-    st.write(yoji_list + 'aiu')
+    st.write('sasi')
+    st.write(yoji_list)
+    st.write('kaki')
     if 'yoji_list' not in st.session_state:
         st.session_state.yoji_list = yoji_list
         return st.session_state.yoji_list
