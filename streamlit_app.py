@@ -159,11 +159,11 @@ def ang_pro():
         
         st.write('あいう')
 
-        st.session_state.yoji_list = yojiyoji()
+        yojiyoji()
 
         st.write(st.session_state.yoji_list)
 
-        st.session_state.ran_list = ranran()
+        ranran()
 
         st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
 
