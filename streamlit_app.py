@@ -129,6 +129,7 @@ def ans_pro():
     st.write('表示された意味となる四字熟語を漢字四字で答えるようにしてください。表記ゆれにより不正解とされる場合もあるため、不正解と出たら他の表記法で試してみてください。')
     
     decide()
+    yoji = ''
 
     if 'selected_word' in st.session_state:
         st.subheader(f"「{st.session_state.selected_word['意味']}」という意味の四字熟語を答えよ。")
