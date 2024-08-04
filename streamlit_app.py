@@ -35,8 +35,6 @@ def yojiyoji():
         st.write(st.session_state.yoji_list)
         st.write('kaki')
         return st.session_state.yoji_list
-    else:
-        pass
 
 def ranran():
     if 'ran_list' not in st.session_state:
