@@ -155,135 +155,135 @@ def ang_pro():
         if 'ans' not in st.session_state:
             st.session_state.ans = []
 
-    st.session_state.yoji_list = yojiyoji()
-    st.session_state.ran_list = ranran()
+        st.session_state.yoji_list = yojiyoji()
+        st.session_state.ran_list = ranran()
 
-    st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
+        st.subheader(f"四字熟語の意味:{st.session_state.selected_word['意味']}")
 
-    col1,col2,col3,col4,col5 = st.columns(5)
+        col1,col2,col3,col4,col5 = st.columns(5)
     
-    if st.session_state.ran_list[0] == st.session_state.ran_list[1]:
-        with col1:
-            if st.button(st.session_state.ran_list[0]):
-                st.session_state.ans.append(st.session_state.ran_list[0])
-        with col2:
-            if st.button(st.session_state.ran_list[1]+ ' '):
-                st.session_state.ans.append(st.session_state.ran_list[1])
-        with col3:
-            if st.button(st.session_state.ran_list[2]):
-                st.session_state.ans.append(st.session_state.ran_list[2])
-        with col4:
-            if st.button(st.session_state.ran_list[3]):
-                st.session_state.ans.append(st.session_state.ran_list[3])
-        with col5:
-            if st.button('一字消去'):
-                if 'ans' in st.session_state and st.session_state.ans:
-                    st.session_state.ans.pop()
-    elif st.session_state.ran_list[0] == st.session_state.ran_list[2]:
-        with col1:
-            if st.button(st.session_state.ran_list[0]):
-                st.session_state.ans.append(st.session_state.ran_list[0])
-        with col2:
-            if st.button(st.session_state.ran_list[1]):
-                st.session_state.ans.append(st.session_state.ran_list[1])
-        with col3:
-            if st.button(st.session_state.ran_list[2]+' '):
-                st.session_state.ans.append(st.session_state.ran_list[2])
-        with col4:
-            if st.button(st.session_state.ran_list[3]):
-                st.session_state.ans.append(st.session_state.ran_list[3])
-        with col5:
-            if st.button('一字消去'):
-                if 'ans' in st.session_state and st.session_state.ans:
-                    st.session_state.ans.pop()
-    elif st.session_state.ran_list[0] == st.session_state.ran_list[3]:
-        with col1:
-            if st.button(st.session_state.ran_list[0]):
-                st.session_state.ans.append(st.session_state.ran_list[0])
-        with col2:
-            if st.button(st.session_state.ran_list[1]):
-                st.session_state.ans.append(st.session_state.ran_list[1])
-        with col3:
-            if st.button(st.session_state.ran_list[2]):
-                st.session_state.ans.append(st.session_state.ran_list[2])
-        with col4:
-            if st.button(st.session_state.ran_list[3]+' '):
-                st.session_state.ans.append(st.session_state.ran_list[3])
-        with col5:
-            if st.button('一字消去'):
-                if 'ans' in st.session_state and st.session_state.ans:
-                    st.session_state.ans.pop()
-    elif st.session_state.ran_list[1] == st.session_state.ran_list[2]:
-        with col1:
-            if st.button(st.session_state.ran_list[0]):
-                st.session_state.ans.append(st.session_state.ran_list[0])
-        with col2:
-            if st.button(st.session_state.ran_list[1]):
-                st.session_state.ans.append(st.session_state.ran_list[1])
-        with col3:
-            if st.button(st.session_state.ran_list[2]+' '):
-                st.session_state.ans.append(st.session_state.ran_list[2])
-        with col4:
-            if st.button(st.session_state.ran_list[3]):
-                st.session_state.ans.append(st.session_state.ran_list[3])
-        with col5:
-            if st.button('一字消去'):
-                if 'ans' in st.session_state and st.session_state.ans:
-                    st.session_state.ans.pop()
-    elif st.session_state.ran_list[1] == st.session_state.ran_list[3]:
-        with col1:
-            if st.button(st.session_state.ran_list[0]):
-                st.session_state.ans.append(st.session_state.ran_list[0])
-        with col2:
-            if st.button(st.session_state.ran_list[1]):
-                st.session_state.ans.append(st.session_state.ran_list[1])
-        with col3:
-            if st.button(st.session_state.ran_list[2]):
-                st.session_state.ans.append(st.session_state.ran_list[2])
-        with col4:
-            if st.button(st.session_state.ran_list[3]+' '):
-                st.session_state.ans.append(st.session_state.ran_list[3])
-        with col5:
-            if st.button('一字消去'):
-                if 'ans' in st.session_state and st.session_state.ans:
-                    st.session_state.ans.pop()
-    elif st.session_state.ran_list[2] == st.session_state.ran_list[3]:
-        with col1:
-            if st.button(st.session_state.ran_list[0]):
-                st.session_state.ans.append(st.session_state.ran_list[0])
-        with col2:
-            if st.button(st.session_state.ran_list[1]):
-                st.session_state.ans.append(st.session_state.ran_list[1])
-        with col3:
-            if st.button(st.session_state.ran_list[2]):
-                st.session_state.ans.append(st.session_state.ran_list[2])
-        with col4:
-            if st.button(st.session_state.ran_list[3]+' '):
-                st.session_state.ans.append(st.session_state.ran_list[3])
-        with col5:
-            if st.button('一字消去'):
-                if 'ans' in st.session_state and st.session_state.ans:
-                    st.session_state.ans.pop()
-    else:
-        with col1:
-            if st.button(st.session_state.ran_list[0]):
-                st.session_state.ans.append(st.session_state.ran_list[0])
-        with col2:
-            if st.button(st.session_state.ran_list[1]):
-                st.session_state.ans.append(st.session_state.ran_list[1])
-        with col3:
-            if st.button(st.session_state.ran_list[2]):
-                st.session_state.ans.append(st.session_state.ran_list[2])
-        with col4:
-            if st.button(st.session_state.ran_list[3]):
-                st.session_state.ans.append(st.session_state.ran_list[3])
-        with col5:
-            if st.button('一字消去'):
-                if 'ans' in st.session_state and st.session_state.ans:
-                    st.session_state.ans.pop()
+        if st.session_state.ran_list[0] == st.session_state.ran_list[1]:
+            with col1:
+                if st.button(st.session_state.ran_list[0]):
+                    st.session_state.ans.append(st.session_state.ran_list[0])
+            with col2:
+                if st.button(st.session_state.ran_list[1]+ ' '):
+                    st.session_state.ans.append(st.session_state.ran_list[1])
+            with col3:
+                if st.button(st.session_state.ran_list[2]):
+                    st.session_state.ans.append(st.session_state.ran_list[2])
+            with col4:
+                if st.button(st.session_state.ran_list[3]):
+                    st.session_state.ans.append(st.session_state.ran_list[3])
+            with col5:
+                if st.button('一字消去'):
+                    if 'ans' in st.session_state and st.session_state.ans:
+                        st.session_state.ans.pop()
+        elif st.session_state.ran_list[0] == st.session_state.ran_list[2]:
+            with col1:
+                if st.button(st.session_state.ran_list[0]):
+                    st.session_state.ans.append(st.session_state.ran_list[0])
+            with col2:
+                if st.button(st.session_state.ran_list[1]):
+                    st.session_state.ans.append(st.session_state.ran_list[1])
+            with col3:
+                if st.button(st.session_state.ran_list[2]+' '):
+                    st.session_state.ans.append(st.session_state.ran_list[2])
+            with col4:
+                if st.button(st.session_state.ran_list[3]):
+                    st.session_state.ans.append(st.session_state.ran_list[3])
+            with col5:
+                if st.button('一字消去'):
+                    if 'ans' in st.session_state and st.session_state.ans:
+                        st.session_state.ans.pop()
+        elif st.session_state.ran_list[0] == st.session_state.ran_list[3]:
+            with col1:
+                if st.button(st.session_state.ran_list[0]):
+                    st.session_state.ans.append(st.session_state.ran_list[0])
+            with col2:
+                if st.button(st.session_state.ran_list[1]):
+                    st.session_state.ans.append(st.session_state.ran_list[1])
+            with col3:
+                if st.button(st.session_state.ran_list[2]):
+                    st.session_state.ans.append(st.session_state.ran_list[2])
+            with col4:
+                if st.button(st.session_state.ran_list[3]+' '):
+                    st.session_state.ans.append(st.session_state.ran_list[3])
+            with col5:
+                if st.button('一字消去'):
+                    if 'ans' in st.session_state and st.session_state.ans:
+                       st.session_state.ans.pop()
+        elif st.session_state.ran_list[1] == st.session_state.ran_list[2]:
+            with col1:
+                if st.button(st.session_state.ran_list[0]):
+                    st.session_state.ans.append(st.session_state.ran_list[0])
+            with col2:
+                if st.button(st.session_state.ran_list[1]):
+                    st.session_state.ans.append(st.session_state.ran_list[1])
+            with col3:
+                if st.button(st.session_state.ran_list[2]+' '):
+                    st.session_state.ans.append(st.session_state.ran_list[2])
+            with col4:
+                if st.button(st.session_state.ran_list[3]):
+                    st.session_state.ans.append(st.session_state.ran_list[3])
+            with col5:
+                if st.button('一字消去'):
+                    if 'ans' in st.session_state and st.session_state.ans:
+                        st.session_state.ans.pop()
+        elif st.session_state.ran_list[1] == st.session_state.ran_list[3]:
+            with col1:
+                if st.button(st.session_state.ran_list[0]):
+                    st.session_state.ans.append(st.session_state.ran_list[0])
+            with col2:
+                if st.button(st.session_state.ran_list[1]):
+                    st.session_state.ans.append(st.session_state.ran_list[1])
+            with col3:
+                if st.button(st.session_state.ran_list[2]):
+                    st.session_state.ans.append(st.session_state.ran_list[2])
+            with col4:
+                if st.button(st.session_state.ran_list[3]+' '):
+                    st.session_state.ans.append(st.session_state.ran_list[3])
+            with col5:
+                if st.button('一字消去'):
+                    if 'ans' in st.session_state and st.session_state.ans:
+                        st.session_state.ans.pop()
+        elif st.session_state.ran_list[2] == st.session_state.ran_list[3]:
+            with col1:
+                if st.button(st.session_state.ran_list[0]):
+                    st.session_state.ans.append(st.session_state.ran_list[0])
+            with col2:
+                if st.button(st.session_state.ran_list[1]):
+                    st.session_state.ans.append(st.session_state.ran_list[1])
+            with col3:
+                if st.button(st.session_state.ran_list[2]):
+                    st.session_state.ans.append(st.session_state.ran_list[2])
+            with col4:
+                if st.button(st.session_state.ran_list[3]+' '):
+                    st.session_state.ans.append(st.session_state.ran_list[3])
+            with col5:
+                if st.button('一字消去'):
+                    if 'ans' in st.session_state and st.session_state.ans:
+                        st.session_state.ans.pop()
+        else:
+            with col1:
+                if st.button(st.session_state.ran_list[0]):
+                    st.session_state.ans.append(st.session_state.ran_list[0])
+            with col2:
+                if st.button(st.session_state.ran_list[1]):
+                    st.session_state.ans.append(st.session_state.ran_list[1])
+            with col3:
+                if st.button(st.session_state.ran_list[2]):
+                    st.session_state.ans.append(st.session_state.ran_list[2])
+            with col4:
+                if st.button(st.session_state.ran_list[3]):
+                    st.session_state.ans.append(st.session_state.ran_list[3])
+            with col5:
+                if st.button('一字消去'):
+                    if 'ans' in st.session_state and st.session_state.ans:
+                        st.session_state.ans.pop()
     
-    if 'ans' in st.session_state:
-        st.write(st.session_state.ans[0])
+        if 'ans' in st.session_state:
+            st.write(st.session_state.ans[0])
 
 sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','読み方クイズ','カテゴリークイズ','アナグラムクイズ','カテゴリー別一覧'])
 
