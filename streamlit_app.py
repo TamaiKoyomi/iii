@@ -279,7 +279,7 @@ def ang_pro():
     
         if 'ans' in st.session_state:
             yoyo = ''.join(st.session_state.ans)
-            st.subheader(yoyo)
+            st.subheader('あなたの解答:'+yoyo)
         
         if st.session_state.ans == st.session_state.yoji_list:
             st.success('おめでとうございます、正解です！')
