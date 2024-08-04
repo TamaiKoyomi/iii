@@ -27,7 +27,7 @@ def decide():
         st.session_state.selected_word = selected_word
         st.session_state.display_meaning = False
 
-        st.session_state.ran_list = None
+        st.session_state.ran_list = []
 
 def yojiyoji():
     yoji_list = list(st.session_state.selected_word['単語'])
