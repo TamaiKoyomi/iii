@@ -287,8 +287,8 @@ def ang_pro():
                     if 'ans' in st.session_state and st.session_state.ans:
                         st.session_state.ans.pop()
     
-        if 'ans' in st.session_state:
-            st.write(st.session_state.ans)
+        for yo in st.session_state.ans:
+            st.write(yo)
 
 sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','読み方クイズ','カテゴリークイズ','アナグラムクイズ','カテゴリー別一覧'])
 
