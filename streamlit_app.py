@@ -111,13 +111,13 @@ def game_yomi():
         st.subheader(f"「{st.session_state.selected_word['単語']}」は、何と読む？")
         answer = st.text_input('読み方を入力してください:')
 
-    if st.button('解答する'):
+    if st.button('解答する') and 'selected_word' in st.session_state:
         if answer == st.session_state.selected_word['読み方']:
                 st.success('おめでとうございます、正解です！')
         else:
             st.error('違います。答えを確認してください')
             st.error(f"答え:{st.session_state.selected_word['読み方']}")
-    if st.button('ヒントを見る'):
+    if st.button('ヒントを見る') and 'selected_word' in st.session_state:
         st.write(f"この単語の意味:{st.session_state.selected_word['意味']}")
 
 def menu():
