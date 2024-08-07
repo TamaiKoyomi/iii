@@ -75,7 +75,7 @@ def show_game():
                 st.success(f"この熟語の意味: {st.session_state.selected_word['意味']}")
             else:
                 st.error('残念、不正解です。')
-                st.error(f"正解は「：{st.session_state.selected_word['分類']}」")
+                st.error(f"正解は「{st.session_state.selected_word['分類']}」")
                 st.error('正しい答えを確認し、この熟語をマスターしましょう！')
                 st.error(f"この熟語の意味: {st.session_state.selected_word['意味']}")
 
