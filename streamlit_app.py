@@ -286,7 +286,6 @@ def ang_pro():
         elif st.session_state.ans != st.session_state.yoji_list and len(st.session_state.ans) >= 4:
             st.error('違います。')
 
-
 sidetab = st.sidebar.radio('選択してください',['メニュー','熟語クイズ','読み方クイズ','カテゴリークイズ','アナグラムクイズ','カテゴリー別一覧'])
 
 if sidetab == 'カテゴリークイズ':
